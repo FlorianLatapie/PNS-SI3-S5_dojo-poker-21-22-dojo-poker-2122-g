@@ -12,8 +12,8 @@ public class App {
         System.out.println("Entrez main B : ");
         int entreeUtilisateurB = scanner.nextInt();
 
-        Carte mainA = new Carte(entreeUtilisateurA);
-        Carte mainB = new Carte(entreeUtilisateurB);
+        Main mainA = new Main (new Carte(entreeUtilisateurA));
+        Main mainB = new Main (new Carte(entreeUtilisateurB));
 
         System.out.println(
                 ComparateurCarte.compare(mainA, mainB)
