@@ -8,6 +8,9 @@ public class ComparateurCarte {
         if (mainA.cartes.get(0).valeur > mainB.cartes.get(0).valeur){
             return "A gagne par carte la plus haute";
         }
+        else if(mainA.cartes.get(0).valeur == mainB.cartes.get(0).valeur){
+            return "Cartes égales";
+        }
         else {
             return "B gagne par carte la plus haute";
         }
