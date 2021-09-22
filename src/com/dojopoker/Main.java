@@ -1,4 +1,4 @@
-package com.dojopocker;
+package com.dojopoker;
 
 public class Main {
 
