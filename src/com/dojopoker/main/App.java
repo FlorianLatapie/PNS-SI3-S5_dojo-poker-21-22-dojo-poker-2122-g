@@ -12,6 +12,8 @@ public class App {
         System.out.println("Entrez main B : ");
         int entreeUtilisateurB = scanner.nextInt();
 
+        // implémenter ici le parser : séparer les cartes ex "1 2 3 4 5" = new Carte("1"); new Carte("2") ; ...
+        
         Main mainA = new Main (new Carte(entreeUtilisateurA));
         Main mainB = new Main (new Carte(entreeUtilisateurB));
 
