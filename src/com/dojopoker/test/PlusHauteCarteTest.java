@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 
 public class PlusHauteCarteTest {
     @Test
@@ -32,7 +31,7 @@ public class PlusHauteCarteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Main 1 gagne !", ComparateurCarte.compare(main1, main2));
+        Assert.assertEquals("Main 1 gagne ! carte la plus haute : 8", ComparateurCarte.compare(main1, main2));
     }
 
     @Test
@@ -55,7 +54,7 @@ public class PlusHauteCarteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Main 2 gagne !", ComparateurCarte.compare(main1, main2));
+        Assert.assertEquals("Main 2 gagne ! carte la plus haute : 10", ComparateurCarte.compare(main1, main2));
     }
 
     @Test
@@ -79,5 +78,25 @@ public class PlusHauteCarteTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals("Egalité !", ComparateurCarte.compare(main1, main2));
+
+        List<Carte> listeMain3 = new ArrayList<>();
+        listeMain3.add(new Carte(2));
+        listeMain3.add(new Carte(3));
+        listeMain3.add(new Carte(5));
+        listeMain3.add(new Carte(6));
+        listeMain3.add(new Carte(10));
+
+        Main main3 = new Main(listeMain3);
+
+        List<Carte> listeMain4 = new ArrayList<>();
+        listeMain4.add(new Carte(2));
+        listeMain4.add(new Carte(3));
+        listeMain4.add(new Carte(5));
+        listeMain4.add(new Carte(6));
+        listeMain4.add(new Carte(9));
+
+        Main main4 = new Main(listeMain4);
+
+        Assert.assertEquals("Main 1 gagne ! carte la plus haute : 10", ComparateurCarte.compare(main3, main4));
     }
 }

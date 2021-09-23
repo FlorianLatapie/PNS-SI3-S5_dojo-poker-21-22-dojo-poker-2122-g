@@ -1,6 +1,5 @@
 package com.dojopoker.main;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -10,16 +9,21 @@ public class Main {
         this.cartes = cartes;
     }
 
-    public int getLenghtMain(){
+    public List<Carte> getCartes(){
+        return this.cartes;
+    }
+
+    public int getCartesSize(){
         return this.cartes.size();
     }
 
+
     @Override
     public String toString() {
-        String retour = "";
+        StringBuilder retour = new StringBuilder();
         for (Carte carte: cartes) {
-            retour += carte.toString() + " ";
+            retour.append(carte.toString() + " ");
         }
-        return retour;
+        return retour.toString();
     }
 }
