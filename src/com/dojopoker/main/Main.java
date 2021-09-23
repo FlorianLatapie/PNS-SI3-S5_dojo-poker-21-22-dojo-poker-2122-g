@@ -14,7 +14,8 @@ public class Main {
         return this.cartes.size();
     }
 
-    public String toString(){
+    @Override
+    public String toString() {
         String retour = "";
         for (Carte carte: cartes) {
             retour += carte.toString() + " ";
