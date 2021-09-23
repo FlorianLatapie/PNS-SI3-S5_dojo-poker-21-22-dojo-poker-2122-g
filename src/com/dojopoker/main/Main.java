@@ -6,12 +6,16 @@ import java.util.List;
 public class Main {
     List<Carte> cartes;
 
-    public Main(Carte ... cartes){
-        this.cartes = new ArrayList<>();
-        this.cartes.addAll(List.of(cartes));
+    public Main(List<Carte> cartes){
+        this.cartes = cartes;
     }
 
-    public String toString(){
+    public int getLenghtMain(){
+        return this.cartes.size();
+    }
+
+    @Override
+    public String toString() {
         String retour = "";
         for (Carte carte: cartes) {
             retour += carte.toString() + " ";

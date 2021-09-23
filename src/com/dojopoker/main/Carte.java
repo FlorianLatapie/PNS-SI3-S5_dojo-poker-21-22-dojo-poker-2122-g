@@ -8,4 +8,10 @@ public class Carte {
         this.valeur = valeur;
         //this.couleur = couleur;
     }
+
+    @Override
+    public String toString() {
+        return  valeur + ""// + couleur
+                ;
+    }
 }

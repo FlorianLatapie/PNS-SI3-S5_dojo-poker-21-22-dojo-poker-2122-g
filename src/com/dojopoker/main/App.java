@@ -1,24 +1,39 @@
 package com.dojopoker.main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Entrez main A : ");
-        int entreeUtilisateurA = scanner.nextInt();
-        System.out.println("Entrez main B : ");
-        int entreeUtilisateurB = scanner.nextInt();
+        System.out.print("Entrez main 1 : ");
+        String mainJ1 = scanner.nextLine();
+        System.out.print("Entrez main 2 : ");
+        String mainJ2 = scanner.nextLine();
 
-        Main mainA = new Main (new Carte(entreeUtilisateurA));
-        Main mainB = new Main (new Carte(entreeUtilisateurB));
+        String[] saisiesJ1 = mainJ1.split(" ");
+        String[] saisiesJ2 = mainJ2.split(" ");
 
-        System.out.println(
-                ComparateurCarte.compare(mainA, mainB)
-        );
+        List<Carte> cartesJ1 = parse(saisiesJ1);
+        List<Carte> cartesJ2 = parse(saisiesJ2);
 
+        if(cartesJ1.size() == 5 && cartesJ2.size() == 5){
+            Main main1 = new Main(cartesJ1);
+            Main main2 = new Main(cartesJ2);
+            System.out.println(ComparateurCarte.compare(main1, main2));
+        } else {
+            System.out.println("Les mains saisies doivent contenir 5 cartes chacune");
+        }
+    }
 
+    private static List<Carte> parse(String[] saisie){
+        List<Carte> retour = new ArrayList<>();
+        for(String carte : saisie){
+            int i = Integer.parseInt(carte);
+            retour.add(new Carte(i));
+        }
+        return retour;
     }
 }
