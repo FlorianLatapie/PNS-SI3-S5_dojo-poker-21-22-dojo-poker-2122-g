@@ -2,7 +2,7 @@ package com.dojopoker.main;
 
 public class ComparateurCarte {
 
-    public static String compare(Main mainA, Main mainB){
+    public static String compare(Main main1, Main main2){
 
         return compareTotalDesMains(main1, main2);
     }
