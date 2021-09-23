@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -17,26 +16,24 @@ public class App {
         String[] saisiesJ1 = mainJ1.split(" ");
         String[] saisiesJ2 = mainJ2.split(" ");
 
-        List<Carte> cartesJ1 = new ArrayList<>();
-        List<Carte> cartesJ2 = new ArrayList<>();
-
-        for(String carte : saisiesJ1){
-            int i = Integer.parseInt(carte);
-            cartesJ1.add(new Carte(i));
-        }
-
-        for(String carte : saisiesJ2){
-            int i = Integer.parseInt(carte);
-            cartesJ2.add(new Carte(i));
-        }
+        List<Carte> cartesJ1 = parse(saisiesJ1);
+        List<Carte> cartesJ2 = parse(saisiesJ2);
 
         if(cartesJ1.size() == 5 && cartesJ2.size() == 5){
             Main main1 = new Main(cartesJ1);
             Main main2 = new Main(cartesJ2);
-            System.out.println(ComparateurCarte.compareTotalDesMains(main1, main2));
-
+            System.out.println(ComparateurCarte.compare(main1, main2));
         } else {
             System.out.println("Les mains saisies doivent contenir 5 cartes chacune");
         }
+    }
+
+    private static List<Carte> parse(String[] saisie){
+        List<Carte> retour = new ArrayList<>();
+        for(String carte : saisie){
+            int i = Integer.parseInt(carte);
+            retour.add(new Carte(i));
+        }
+        return retour;
     }
 }

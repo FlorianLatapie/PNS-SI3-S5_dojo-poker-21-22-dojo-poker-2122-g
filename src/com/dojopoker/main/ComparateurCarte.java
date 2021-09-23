@@ -2,22 +2,12 @@ package com.dojopoker.main;
 
 public class ComparateurCarte {
 
-    public static String compare(Main mainA, Main mainB){
+    public static String compare(Main main1, Main main2){
 
-        // carte la plus haute
-        if (mainA.cartes.get(0).valeur > mainB.cartes.get(0).valeur){
-            return "A gagne par carte la plus haute";
-        }
-        else if(mainA.cartes.get(0).valeur == mainB.cartes.get(0).valeur){
-            return "Cartes égales";
-        }
-        else {
-            return "B gagne par carte la plus haute";
-        }
+        return compareTotalDesMains(main1, main2);
     }
 
-    public static String compareTotalDesMains(Main main1, Main main2){
-        String res;
+    private static String compareTotalDesMains(Main main1, Main main2){
         int resMain1 = 0, resMain2 = 0;
 
         for(int i=0; i<main1.getLenghtMain(); i++){
@@ -30,14 +20,12 @@ public class ComparateurCarte {
         }
 
         if(resMain1 == resMain2){
-            res = "Egalité !";
+            return "Egalité !";
         }
         else if (resMain1 > resMain2){
-            res = "Main 1 gagne !";
+            return "Main 1 gagne !";
         } else {
-            res = "Main 2 gagne !";
+            return "Main 2 gagne !";
         }
-
-        return res;
     }
 }
