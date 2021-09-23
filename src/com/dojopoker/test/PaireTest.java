@@ -31,6 +31,7 @@ public class PaireTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals("Main 1 gagne ! grâce à paire : 1", ComparateurCarte.compare(main1, main2));
+        Assert.assertEquals("Main 2 gagne ! grâce à paire : 1", ComparateurCarte.compare(main2, main1));
     }
 
     @Test
@@ -54,11 +55,7 @@ public class PaireTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals("Main 2 gagne ! grâce à paire vs paire : 2", ComparateurCarte.compare(main1, main2));
-
-        Main main3 = new Main(listeMain1);
-        Main main4 = new Main(listeMain2);
-
-        Assert.assertEquals("Main 1 gagne ! grâce à paire vs paire : 2", ComparateurCarte.compare(main4, main3));
+        Assert.assertEquals("Main 1 gagne ! grâce à paire vs paire : 2", ComparateurCarte.compare(main2, main1));
     }
 
     @Test
@@ -81,6 +78,6 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Main 2 gagne ! carte la plus haute : ", ComparateurCarte.compare(main1, main2));
+        Assert.assertEquals("Main 2 gagne ! carte la plus haute : 5", ComparateurCarte.compare(main1, main2));
     }
 }
