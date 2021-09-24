@@ -1,8 +1,7 @@
 package com.dojopoker.main;
 
 public class ComparateurCarte {
-    private ComparateurCarte() {
-    }
+    private ComparateurCarte() {}
 
     public static String compare(Main main1, Main main2) {
         if ((contientPaire(main1) || contientPaire(main2))) {
@@ -12,7 +11,7 @@ public class ComparateurCarte {
         }
     }
 
-    public static String compareCarteLaPlusHaute(Main main1, Main main2) {
+    private static String compareCarteLaPlusHaute(Main main1, Main main2) {
         int resMain1 = 0, resMain2 = 0;
         int lePlusHaut = -1;
 
@@ -39,7 +38,7 @@ public class ComparateurCarte {
         }
     }
 
-    public static String comparePaires(Main main1, Main main2) {
+    private static String comparePaires(Main main1, Main main2) {
         if (contientPaire(main1) && contientPaire(main2)) {
             if (valeurPaire(main1) > valeurPaire(main2)) {
                 return "Main 1 gagne ! grâce à paire vs paire : " + valeurPaire(main1);
@@ -58,7 +57,7 @@ public class ComparateurCarte {
         }
     }
 
-    public static boolean contientPaire(Main main1) {
+    private static boolean contientPaire(Main main1) {
         for (int i = 0; i < main1.getCartesSize(); i++) {
             for (int j = 0; j < main1.getCartesSize(); j++) {
                 if (i != j && main1.getCartes().get(i).getValeur() == main1.getCartes().get(j).getValeur()) {
@@ -69,7 +68,7 @@ public class ComparateurCarte {
         return false;
     }
 
-    public static int valeurPaire(Main main) {
+    private static int valeurPaire(Main main) {
         for (int i = 0; i < main.getCartesSize(); i++) {
             for (int j = 0; j < main.getCartesSize(); j++) {
                 if (i != j && main.getCartes().get(i).getValeur() == main.getCartes().get(j).getValeur()) {
@@ -81,10 +80,9 @@ public class ComparateurCarte {
     }
 
     private static void supprimerCartes(Main main, int valeurCarte, int nbASuppr) {
-        int paire = valeurPaire(main);
         for (int j = 0; j < nbASuppr; j++) {
             for (int i = 0; i < main.getCartesSize(); i++) {
-                if (main.getCartes().get(i).getValeur() == paire) {
+                if (main.getCartes().get(i).getValeur() == valeurCarte) {
                     main.getCartes().remove(i);
                     break;
                 }

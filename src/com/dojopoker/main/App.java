@@ -26,6 +26,8 @@ public class App {
         } else {
             System.out.println("Les mains saisies doivent contenir 5 cartes chacune");
         }
+        System.out.println();
+        main(args);
     }
 
     private static List<Carte> parse(String[] saisie){

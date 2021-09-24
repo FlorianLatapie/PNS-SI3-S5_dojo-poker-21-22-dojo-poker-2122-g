@@ -2,18 +2,18 @@ package com.dojopoker.main;
 
 public class Carte {
     private int valeur;
-    //String private couleur;
+    //private Stringcouleur;
 
     public Carte(int valeur /*, String couleur*/){
         this.valeur = valeur;
         //this.couleur = couleur;
     }
 
-    public int getValeur() {
+    int getValeur() {
         return valeur;
     }
 
-    /*public String getCouleur() {
+    /*String getCouleur() {
         return couleur;
     }*/
 

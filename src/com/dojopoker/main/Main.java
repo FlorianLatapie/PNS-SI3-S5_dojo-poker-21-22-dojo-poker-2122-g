@@ -9,11 +9,11 @@ public class Main {
         this.cartes = cartes;
     }
 
-    public List<Carte> getCartes(){
+    List<Carte> getCartes(){
         return this.cartes;
     }
 
-    public int getCartesSize(){
+    int getCartesSize(){
         return this.cartes.size();
     }
 
