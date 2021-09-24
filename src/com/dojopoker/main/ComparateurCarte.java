@@ -17,15 +17,15 @@ public class ComparateurCarte {
         int lePlusHaut = -1;
 
         for (int i = 0; i < main1.getCartesSize(); i++) {
-            if (main1.cartes.get(i).valeur > main2.cartes.get(i).valeur) {
+            if (main1.getCartes().get(i).getValeur() > main2.getCartes().get(i).getValeur()) {
                 resMain1++;
-                if (main1.cartes.get(i).valeur > lePlusHaut) {
-                    lePlusHaut = main1.cartes.get(i).valeur;
+                if (main1.getCartes().get(i).getValeur() > lePlusHaut) {
+                    lePlusHaut = main1.getCartes().get(i).getValeur();
                 }
-            } else if (main1.cartes.get(i).valeur < main2.cartes.get(i).valeur) {
+            } else if (main1.getCartes().get(i).getValeur() < main2.getCartes().get(i).getValeur()) {
                 resMain2++;
-                if (main2.cartes.get(i).valeur > lePlusHaut) {
-                    lePlusHaut = main2.cartes.get(i).valeur;
+                if (main2.getCartes().get(i).getValeur() > lePlusHaut) {
+                    lePlusHaut = main2.getCartes().get(i).getValeur();
                 }
             }
         }
@@ -61,7 +61,7 @@ public class ComparateurCarte {
     public static boolean contientPaire(Main main1) {
         for (int i = 0; i < main1.getCartesSize(); i++) {
             for (int j = 0; j < main1.getCartesSize(); j++) {
-                if (i != j && main1.cartes.get(i).valeur == main1.cartes.get(j).valeur) {
+                if (i != j && main1.getCartes().get(i).getValeur() == main1.getCartes().get(j).getValeur()) {
                     return true;
                 }
             }
@@ -72,8 +72,8 @@ public class ComparateurCarte {
     public static int valeurPaire(Main main) {
         for (int i = 0; i < main.getCartesSize(); i++) {
             for (int j = 0; j < main.getCartesSize(); j++) {
-                if (i != j && main.cartes.get(i).valeur == main.cartes.get(j).valeur) {
-                    return main.cartes.get(i).valeur;
+                if (i != j && main.getCartes().get(i).getValeur() == main.getCartes().get(j).getValeur()) {
+                    return main.getCartes().get(i).getValeur();
                 }
             }
         }
@@ -84,7 +84,7 @@ public class ComparateurCarte {
         int paire = valeurPaire(main);
         for (int j = 0; j < nbASuppr; j++) {
             for (int i = 0; i < main.getCartesSize(); i++) {
-                if (main.getCartes().get(i).valeur == paire) {
+                if (main.getCartes().get(i).getValeur() == paire) {
                     main.getCartes().remove(i);
                     break;
                 }

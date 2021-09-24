@@ -3,7 +3,7 @@ package com.dojopoker.main;
 import java.util.List;
 
 public class Main {
-    List<Carte> cartes;
+    private List<Carte> cartes;
 
     public Main(List<Carte> cartes){
         this.cartes = cartes;
