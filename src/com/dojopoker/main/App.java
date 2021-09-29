@@ -22,7 +22,7 @@ public class App {
         if(cartesJ1.size() == 5 && cartesJ2.size() == 5){
             Main main1 = new Main(cartesJ1);
             Main main2 = new Main(cartesJ2);
-            System.out.println(ComparateurCarte.compare(main1, main2));
+            System.out.println(ComparateurMain.compare(main1, main2));
         } else {
             System.out.println("Les mains saisies doivent contenir 5 cartes chacune");
         }
