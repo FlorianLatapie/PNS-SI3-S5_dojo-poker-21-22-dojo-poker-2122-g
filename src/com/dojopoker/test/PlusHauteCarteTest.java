@@ -32,7 +32,7 @@ public class PlusHauteCarteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Main 1 gagne ! carte la plus haute : 8", ComparateurMain.compare(main1, main2));
+        Assert.assertEquals("La main 1 gagne avec carte la plus haute : 8", ComparateurMain.compare(main1, main2).toString());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class PlusHauteCarteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Main 2 gagne ! carte la plus haute : 10", ComparateurMain.compare(main1, main2));
+        Assert.assertEquals("La main 2 gagne avec carte la plus haute : 10", ComparateurMain.compare(main1, main2).toString());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class PlusHauteCarteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("Egalité !", ComparateurMain.compare(main1, main2));
+        Assert.assertEquals("Egalité", ComparateurMain.compare(main1, main2).toString());
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(2));
@@ -98,6 +98,6 @@ public class PlusHauteCarteTest {
 
         Main main4 = new Main(listeMain4);
 
-        Assert.assertEquals("Main 1 gagne ! carte la plus haute : 10", ComparateurMain.compare(main3, main4));
+        Assert.assertEquals("La main 1 gagne avec carte la plus haute : 10", ComparateurMain.compare(main3, main4).toString());
     }
 }
