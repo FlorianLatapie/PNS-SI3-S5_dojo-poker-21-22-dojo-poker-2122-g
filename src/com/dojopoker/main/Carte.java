@@ -2,7 +2,7 @@ package com.dojopoker.main;
 
 public class Carte {
     private int valeur;
-    //private Stringcouleur;
+    //private String couleur;
 
     public Carte(int valeur /*, String couleur*/){
         this.valeur = valeur;
@@ -16,6 +16,15 @@ public class Carte {
     /*String getCouleur() {
         return couleur;
     }*/
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof Carte) {
+            Carte carteAComparer = (Carte)obj;
+            return this.valeur == carteAComparer.valeur /* && this.couleur == carteAComparer.couleur*/;
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
