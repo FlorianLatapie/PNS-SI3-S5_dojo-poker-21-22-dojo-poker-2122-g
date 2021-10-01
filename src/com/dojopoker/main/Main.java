@@ -17,6 +17,14 @@ public class Main {
         return this.cartes.size();
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof Main) {
+            Main mainAComparer = (Main)obj;
+            return this.cartes.equals(mainAComparer.cartes);
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

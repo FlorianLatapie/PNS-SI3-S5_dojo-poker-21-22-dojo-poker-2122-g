@@ -1,9 +1,6 @@
 package com.dojopoker.test;
 
-import com.dojopoker.main.Carte;
-import com.dojopoker.main.ComparateurCarte;
-import com.dojopoker.main.ComparateurMain;
-import com.dojopoker.main.Main;
+import com.dojopoker.main.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -30,9 +27,8 @@ public class PaireTest {
         listeMain2.add(new Carte(10));
 
         Main main2 = new Main(listeMain2);
-
-        Assert.assertEquals("La main 1 gagne avec une paire : 1", ComparateurMain.compare(main1, main2).toString());
-        Assert.assertEquals("La main 2 gagne avec une paire : 1", ComparateurMain.compare(main2, main1).toString());
+        Assert.assertEquals(new Gagnant(1,VictoiresPossibles.paire, 1), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.paire, 1), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -55,8 +51,8 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("La main 2 gagne avec une paire vs paire : 2", ComparateurMain.compare(main1, main2).toString());
-        Assert.assertEquals("La main 1 gagne avec une paire vs paire : 2", ComparateurMain.compare(main2, main1).toString());
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.paire, 2), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1,VictoiresPossibles.paire, 2), ComparateurMain.compare(main2, main1));
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(8));
@@ -76,8 +72,8 @@ public class PaireTest {
 
         Main main4 = new Main(listeMain4);
 
-        Assert.assertEquals("La main 2 gagne avec carte la plus haute : 5", ComparateurMain.compare(main3, main4).toString());
-        Assert.assertEquals("La main 1 gagne avec carte la plus haute : 5", ComparateurMain.compare(main4, main3).toString());
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 5), ComparateurMain.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(1,VictoiresPossibles.carte_la_plus_haute, 5), ComparateurMain.compare(main4, main3));
     }
 
     @Test
@@ -100,6 +96,6 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("La main 2 gagne avec carte la plus haute : 5", ComparateurMain.compare(main1, main2).toString());
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 5), ComparateurMain.compare(main1, main2));
     }
 }
