@@ -1,12 +1,23 @@
 package com.dojopoker.main;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class ComparateurMain {
     private static ComparateurCarte cartes;
 
     public static Gagnant compare(Main main1, Main main2) {
-        if ((cartes.contientPaire(main1)!=0 || cartes.contientPaire(main2)!=0)) {
+        int[] paireMain1 = cartes.contientDoublePaires(main1);
+        int[] paireMain2 = cartes.contientDoublePaires(main2);
+
+        if(paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0){
+            return compareDoublePaires(main1, main2);
+        }
+        else if ((cartes.contientPaire(main1)!=0 || cartes.contientPaire(main2)!=0)) {
             return comparePaires(main1, main2);
-        } else {
+        }
+        else {
             return compareCarteLaPlusHaute(main1, main2);
         }
     }
@@ -57,5 +68,35 @@ public class ComparateurMain {
         }
     }
 
+    private static Gagnant compareDoublePaires(Main main1, Main main2) {
+        int[] paireMain1 = cartes.contientDoublePaires(main1);
+        int[] paireMain2 = cartes.contientDoublePaires(main2);
+
+        if(paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] != 0 && paireMain2[1] != 0){
+            if(paireMain1[0] > paireMain2[0]) {
+                return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
+            } else if (paireMain1[0] < paireMain2[0]) {
+                return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+            } else {
+                if(paireMain1[1] > paireMain2[1]){
+                    return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
+                } else if(paireMain1[1] < paireMain2[1]){
+                    return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+                } else {
+                    if(paireMain1[2] > paireMain2[2]){
+                        return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1], paireMain1[2]});
+                    } else if(paireMain1[2] < paireMain2[2]){
+                        return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1], paireMain2[2]});
+                    } else {
+                        return new Gagnant(0, VictoiresPossibles.egalite, null);
+                    }
+                }
+            }
+        } else if(paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] == 0 && paireMain2[1] == 0){
+            return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
+        } else {
+            return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+        }
+    }
 
 }
