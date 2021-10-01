@@ -30,20 +30,20 @@ public class ComparateurMain {
         }
 
         if (resMain1 == resMain2) {
-            return new Gagnant(0, Gagnant.VictoiresPossibles.egalite, null);
+            return new Gagnant(0, VictoiresPossibles.egalite, null);
         } else if (resMain1 > resMain2) {
-            return new Gagnant(1, Gagnant.VictoiresPossibles.carte_la_plus_haute, lePlusHaut.getValeur());
+            return new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, lePlusHaut.getValeur());
         } else {
-            return new Gagnant(2, Gagnant.VictoiresPossibles.carte_la_plus_haute, lePlusHaut.getValeur());
+            return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, lePlusHaut.getValeur());
         }
     }
 
     private static Gagnant comparePaires(Main main1, Main main2) {
         if (cartes.contientPaire(main1)!=0 && cartes.contientPaire(main2)!=0) {
             if (cartes.contientPaire(main1) > cartes.contientPaire(main2)) {
-                return new Gagnant(1, Gagnant.VictoiresPossibles.paire, cartes.contientPaire(main1));
+                return new Gagnant(1, VictoiresPossibles.paire, cartes.contientPaire(main1));
             } else if (cartes.contientPaire(main1) < cartes.contientPaire(main2)) {
-                return new Gagnant(2, Gagnant.VictoiresPossibles.paire, cartes.contientPaire(main2));
+                return new Gagnant(2, VictoiresPossibles.paire, cartes.contientPaire(main2));
             } else {
                 cartes.supprimerCartes(main1, cartes.contientPaire(main1), 2);
                 cartes.supprimerCartes(main2, cartes.contientPaire(main2), 2);
@@ -51,9 +51,9 @@ public class ComparateurMain {
                 return compareCarteLaPlusHaute(main1, main2);
             }
         } else if (cartes.contientPaire(main1)!=0) {
-            return new Gagnant(1, Gagnant.VictoiresPossibles.paire, cartes.contientPaire(main1));
+            return new Gagnant(1, VictoiresPossibles.paire, cartes.contientPaire(main1));
         } else {
-            return new Gagnant(2, Gagnant.VictoiresPossibles.paire, cartes.contientPaire(main2));
+            return new Gagnant(2, VictoiresPossibles.paire, cartes.contientPaire(main2));
         }
     }
 

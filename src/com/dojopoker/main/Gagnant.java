@@ -12,27 +12,7 @@ public class Gagnant {
     private List<Integer> cartesGagnantes;
     private VictoiresPossibles victoire;
 
-    public enum VictoiresPossibles {
-        egalite(0, "Egalite"),
-        carte_la_plus_haute(1, "carte la plus haute"),
-        paire(2, "une paire"),
-        double_paire(3, "double paire"),
-        brelan(4, "brelan"),
-        suite(5, "suite"),
-        couleur(6, "couleur"),
-        full(7, "full"),
-        carre(8, "carré"),
-        quinte_flush(9, "quinte flush");
 
-        private int val;
-        private String valToString;
-
-        VictoiresPossibles(int val, String valToString) {
-            this.valToString = valToString;
-            this.val = val;
-        }
-
-    }
 
     public Gagnant(int joueur, VictoiresPossibles victoire, Integer... cartesGagnantes) {
         this.joueur = joueur;
@@ -50,12 +30,14 @@ public class Gagnant {
     private String cartesGagantsToString() {
         StringBuilder retour = new StringBuilder();
         int i;
-        for (i = 0; i < cartesGagnantes.size() - 1; i++) {
-            if (cartesGagnantes.get(i) != null) {
-                retour.append(cartesGagnantes.get(i) + " ");
+        if (!cartesGagnantes.isEmpty()) {
+            for (i = 0; i < cartesGagnantes.size() - 1; i++) {
+                if (cartesGagnantes.get(i) != null) {
+                    retour.append(cartesGagnantes.get(i) + " ");
+                }
             }
+            retour.append(cartesGagnantes.get(i));
         }
-        retour.append(cartesGagnantes.get(i));
         return retour.toString();
     }
 
@@ -64,7 +46,18 @@ public class Gagnant {
         if (this.joueur == 0) {
             return "Egalité";
         } else {
-            return "La main " + joueur + " gagne avec " + victoire.valToString + " : " + cartesGagantsToString();
+            return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Gagnant) {
+            Gagnant gagnantAComparer = (Gagnant) obj;
+            return this.joueur == gagnantAComparer.joueur
+                    && this.victoire.equals(gagnantAComparer.victoire)
+                    && this.cartesGagantsToString().equals(gagnantAComparer.cartesGagantsToString());
+        }
+        return false;
     }
 }
