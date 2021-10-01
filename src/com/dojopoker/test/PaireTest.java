@@ -55,8 +55,8 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals("La main 2 gagne avec une paire vs paire : 2", ComparateurMain.compare(main1, main2).toString());
-        Assert.assertEquals("La main 1 gagne avec une paire vs paire : 2", ComparateurMain.compare(main2, main1).toString());
+        Assert.assertEquals("La main 2 gagne avec une paire : 2", ComparateurMain.compare(main1, main2).toString());
+        Assert.assertEquals("La main 1 gagne avec une paire : 2", ComparateurMain.compare(main2, main1).toString());
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(8));
