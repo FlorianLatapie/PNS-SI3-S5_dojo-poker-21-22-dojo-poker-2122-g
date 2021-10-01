@@ -31,12 +31,9 @@ public class Gagnant {
         StringBuilder retour = new StringBuilder();
         int i;
         if (!cartesGagnantes.isEmpty()) {
-            for (i = 0; i < cartesGagnantes.size() - 1; i++) {
-                if (cartesGagnantes.get(i) != null) {
-                    retour.append(cartesGagnantes.get(i) + " ");
-                }
+            for (i = 0; i < cartesGagnantes.size() ; i++) {
+                retour.append(cartesGagnantes.get(i) + " ");
             }
-            retour.append(cartesGagnantes.get(i));
         }
         return retour.toString();
     }
@@ -44,7 +41,7 @@ public class Gagnant {
     @Override
     public String toString() {
         if (this.joueur == 0) {
-            return "Egalité";
+            return "Égalité";
         } else {
             return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString();
         }
