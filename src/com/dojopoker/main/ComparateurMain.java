@@ -13,6 +13,9 @@ public class ComparateurMain {
         else if ((cartes.contientPaire(main1)!=0 || cartes.contientPaire(main2)!=0)) {
             return comparePaires(main1, main2);
         }
+        else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
+            return compareBrelans(main1, main2); //A modifier car methode pas appelee en cas de paire etc.
+        }
         else {
             return compareCarteLaPlusHaute(main1, main2);
         }
@@ -62,6 +65,26 @@ public class ComparateurMain {
         } else {
             return new Gagnant(2, VictoiresPossibles.paire, cartes.contientPaire(main2));
         }
+    }
+
+    private static Gagnant compareBrelans(Main main1, Main main2) {
+        if(cartes.contientBrelan(main1) != 0 && cartes.contientBrelan(main2) != 0) {
+            if (cartes.contientBrelan(main1) > cartes.contientBrelan(main2)) {
+                return new Gagnant(1, VictoiresPossibles.brelan, cartes.contientBrelan(main1));
+            } else if (cartes.contientBrelan(main1) > cartes.contientBrelan(main2)) {
+                return new Gagnant(2, VictoiresPossibles.brelan, cartes.contientBrelan(main2));
+            } else {
+                cartes.supprimerCartes(main1, cartes.contientBrelan(main1), 3);
+                cartes.supprimerCartes(main2, cartes.contientBrelan(main2), 3);
+
+                return compareCarteLaPlusHaute(main1, main2);
+            }
+        } else if (cartes.contientBrelan(main1) != 0) {
+            return new Gagnant(1, VictoiresPossibles.brelan, cartes.contientBrelan(main1));
+        } else {
+            return new Gagnant(2, VictoiresPossibles.brelan, cartes.contientBrelan(main2));
+        }
+
     }
 
     private static Gagnant compareDoublePaires(Main main1, Main main2) {

@@ -14,6 +14,21 @@ public class ComparateurCarte {
         return 0;
     }
 
+    static int contientBrelan(Main main) {
+        for(int i = 0; i < main.getCartesSize(); i++) {
+            for(int j = 0; j < main.getCartesSize(); j++) {
+                for(int h = 0; h < main.getCartesSize(); h++) {
+                    if((i != j) && (j != h) && (i != h) && (main.getCartes().get(i).getValeur()
+                       == main.getCartes().get(j).getValeur()) && (main.getCartes().get(j).getValeur()
+                       == main.getCartes().get(h).getValeur())) {
+                        return main.getCartes().get(i).getValeur();
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
     static int[] contientDoublePaires(Main main){
 
         int paire1, paire2, carteRestante;
