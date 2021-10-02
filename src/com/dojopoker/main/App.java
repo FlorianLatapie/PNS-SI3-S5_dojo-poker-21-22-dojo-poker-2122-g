@@ -1,5 +1,6 @@
 package com.dojopoker.main;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class App {
@@ -16,7 +17,8 @@ public class App {
             System.out.println(m.toString());
             main(args);
         }catch (Exception e){
-            System.out.println("Une erreur s'est produite, veuillez recommencer");
+            if (e instanceof NoSuchElementException) return;
+            System.out.println("Une erreur s'est produite, veuillez recommencer\n"+e.getMessage());
             main(args);
         }
     }
