@@ -14,11 +14,11 @@ public class EntreeSortie {
         return retour;
     }
 
-    public static Main reccupereMain(String nextLine) {
-        String[] saisies = nextLine.split(" ");
+    public static Main reccupereMain(String entree) throws Exception {
+        String[] saisies = entree.split(" ");
 
         if (saisies.length != 5){
-            return null; // exception à ajouter ici
+            throw new Exception("Le nombre de cartes saisies est différent de 5");
         }
         List<Carte> cartes = tableauStringVersListCarte(saisies);
 

@@ -1,7 +1,6 @@
 package com.dojopoker.test;
 
 import com.dojopoker.main.App;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
@@ -15,7 +14,7 @@ public class AppTest {
         final FileInputStream fips = new FileInputStream(new File("src\\com\\dojopoker\\test\\input.txt"));
         System.setIn(fips);
         App.main(null);
-        Assert.assertTrue(true);
+
     }
 
     @Test
@@ -24,6 +23,6 @@ public class AppTest {
         final FileInputStream fips = new FileInputStream(new File("src\\com\\dojopoker\\test\\input2.txt"));
         System.setIn(fips);
         App.main(null);
-        Assert.assertTrue(true);
+
     }
 }

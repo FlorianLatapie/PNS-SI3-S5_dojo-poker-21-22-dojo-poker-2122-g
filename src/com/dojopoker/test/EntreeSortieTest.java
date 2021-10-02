@@ -12,7 +12,7 @@ import java.util.List;
 public class EntreeSortieTest {
 
     @Test
-    public void reccupereMainTest(){
+    public void reccupereMainTest() throws Exception {
         List<Carte> cartesAttendues = new ArrayList<>();
         cartesAttendues.add(new Carte(1));
         cartesAttendues.add(new Carte(1));
@@ -22,7 +22,10 @@ public class EntreeSortieTest {
         Main attendu = new Main(cartesAttendues);
 
         Assert.assertEquals(attendu, EntreeSortie.reccupereMain("1 1 1 1 1"));
+    }
 
-        Assert.assertNull(EntreeSortie.reccupereMain("1"));
+    @Test (expected = Exception.class)
+    public void exceptionReccupereMainTest() throws Exception {
+        EntreeSortie.reccupereMain("1");
     }
 }
