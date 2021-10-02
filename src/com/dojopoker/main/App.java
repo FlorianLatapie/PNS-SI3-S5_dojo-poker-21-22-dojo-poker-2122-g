@@ -12,7 +12,6 @@ public class App {
             System.out.print("Entrez main 2 : ");
             Main main2 = EntreeSortie.reccupereMain(scanner.nextLine());
 
-            //System.out.println(ComparateurMain.compare(main1, main2));
             Gagnant m = ComparateurMain.compare(main1, main2);
             System.out.println(m.toString());
             main(args);

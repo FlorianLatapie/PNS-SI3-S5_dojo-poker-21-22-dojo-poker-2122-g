@@ -1,9 +1,5 @@
 package com.dojopoker.main;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
 public class ComparateurMain {
     private static ComparateurCarte cartes;
 
@@ -84,9 +80,9 @@ public class ComparateurMain {
                     return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
                 } else {
                     if(paireMain1[2] > paireMain2[2]){
-                        return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1], paireMain1[2]});
+                        return new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Integer[] {paireMain1[2]});
                     } else if(paireMain1[2] < paireMain2[2]){
-                        return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1], paireMain2[2]});
+                        return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[] {paireMain2[2]});
                     } else {
                         return new Gagnant(0, VictoiresPossibles.egalite, null);
                     }
