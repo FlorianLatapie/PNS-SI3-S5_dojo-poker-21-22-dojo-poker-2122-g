@@ -7,8 +7,22 @@ public class ComparateurMain {
         int[] paireMain1 = cartes.contientDoublePaires(main1);
         int[] paireMain2 = cartes.contientDoublePaires(main2);
 
-
-        if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
+        /*if (cartes.contientQinteFlush(main1) != 0 || cartes.contientQinteFlush(main2) != 0) {
+            return compareQinteFlush(main1, main2);
+        }
+        else if (cartes.contientCarre(main1) != 0 || cartes.contientCarre(main2) != 0) {
+            return compareCarre(main1, main2);
+        }
+        else if (cartes.contientFull(main1) != 0 || cartes.contientFull(main2) != 0) {
+            return compareFull(main1, main2);
+        }
+        else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
+            return compareCouleur(main1, main2);
+        }
+        else if (cartes.contientSuite(main1) != 0 || cartes.contientSuite(main2) != 0) {
+            return compareSuite(main1, main2);
+        }
+        else */if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
         }
         else if(paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0){
