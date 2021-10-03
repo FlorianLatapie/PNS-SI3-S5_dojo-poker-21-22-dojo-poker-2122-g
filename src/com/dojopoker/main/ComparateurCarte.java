@@ -1,5 +1,8 @@
 package com.dojopoker.main;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ComparateurCarte {
     private ComparateurCarte() {}
 
@@ -58,6 +61,32 @@ public class ComparateurCarte {
 
         return new int[] {0, 0,0};
     }
+
+    static int contientCarre(Main main) {
+        return contientPlusieurs(main, 4);
+    }
+
+    static int contientPlusieurs(Main main, int occurencesATrouver) {
+        Map<Integer, Integer> carteOccurences = new HashMap<>();
+
+        for (int i = 0; i < main.getCartesSize(); i++) {
+            if (carteOccurences.containsKey(main.getCartes().get(i).getValeur())) {
+                // la carte existe, occurence ++
+                carteOccurences.replace(main.getCartes().get(i).getValeur(), carteOccurences.get(main.getCartes().get(i).getValeur()) + 1);
+            } else {
+                // la carte n'est pas encore repertoriée, occurence = 1
+                carteOccurences.put(main.getCartes().get(i).getValeur(), 1);
+            }
+        }
+
+        for (Integer i : carteOccurences.keySet()) {
+            if (carteOccurences.get(i) == occurencesATrouver) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
 
     static void supprimerCartes(Main main, int valeurCarte, int nbASuppr) {
         for (int j = 0; j < nbASuppr; j++) {
