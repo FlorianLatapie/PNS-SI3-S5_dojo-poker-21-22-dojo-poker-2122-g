@@ -33,7 +33,7 @@ public class BrelanTest {
     }
 
     @Test
-    public void brelanVsPaire() {
+    public void brelanVsPaireTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(1));
         listeMain1.add(new Carte(1));
@@ -57,7 +57,7 @@ public class BrelanTest {
     }
 
     @Test
-    public void brelanVsDoublePaire() {
+    public void brelanVsDoublePaireTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(1));
         listeMain1.add(new Carte(1));

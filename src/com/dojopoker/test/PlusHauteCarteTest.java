@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PlusHauteCarteTest {
     @Test
-    public void testMain1Gagne() {
+    public void main1GagneTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(2));
         listeMain1.add(new Carte(3));
@@ -33,7 +33,7 @@ public class PlusHauteCarteTest {
     }
 
     @Test
-    public void testMain2Gagne() {
+    public void main2GagneTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(2));
         listeMain1.add(new Carte(3));
@@ -56,7 +56,7 @@ public class PlusHauteCarteTest {
     }
 
     @Test
-    public void testMainEgalite() {
+    public void mainEgaliteTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(2));
         listeMain1.add(new Carte(3));
