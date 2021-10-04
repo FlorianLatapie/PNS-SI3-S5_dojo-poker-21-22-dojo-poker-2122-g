@@ -11,7 +11,7 @@ public class AppTest {
     @Test
     public void mainTest() throws FileNotFoundException {
 
-        final FileInputStream fips = new FileInputStream(new File("src\\com\\dojopoker\\test\\input.txt"));
+        final FileInputStream fips = new FileInputStream(new File("src/com/dojopoker/test/input.txt"));
         System.setIn(fips);
         App.main(null);
 
@@ -20,7 +20,7 @@ public class AppTest {
     @Test
     public void erreurMainTest() throws FileNotFoundException {
 
-        final FileInputStream fips = new FileInputStream(new File("src\\com\\dojopoker\\test\\input2.txt"));
+        final FileInputStream fips = new FileInputStream(new File("src/com/dojopoker/test/input2.txt"));
         System.setIn(fips);
         App.main(null);
 
