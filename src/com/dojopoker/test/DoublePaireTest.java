@@ -28,8 +28,8 @@ public class DoublePaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {2, 1}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {2, 1}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Carte[] {new Carte(2), new Carte(1)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Carte[] {new Carte(2), new Carte(1)}), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -52,8 +52,8 @@ public class DoublePaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {2, 1}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {2, 1}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Carte[] {new Carte(2), new Carte(1)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Carte[] {new Carte(2), new Carte(1)}), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -76,8 +76,8 @@ public class DoublePaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[]{5}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Integer[]{5}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main2, main1));
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(2));
@@ -97,8 +97,8 @@ public class DoublePaireTest {
 
         Main main4 = new Main(listeMain4);
 
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[]{5}), ComparateurMain.compare(main3, main4));
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Integer[]{5}), ComparateurMain.compare(main4, main3));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main4, main3));
 
         Assert.assertEquals(new Gagnant(0, VictoiresPossibles.egalite, null), ComparateurMain.compare(main1, main1));
     }
@@ -123,8 +123,8 @@ public class DoublePaireTest {
 
         Main main6 = new Main(listeMain6);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {5,1}), ComparateurMain.compare(main5, main6));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {5,1}), ComparateurMain.compare(main6, main5));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Carte[] {new Carte(5),new Carte(1)}), ComparateurMain.compare(main5, main6));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Carte[] {new Carte(5),new Carte(1)}), ComparateurMain.compare(main6, main5));
 
         List<Carte> listeMain9 = new ArrayList<>();
         listeMain9.add(new Carte(10));
@@ -144,7 +144,7 @@ public class DoublePaireTest {
 
         Main main10 = new Main(listeMain10);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {10,2}), ComparateurMain.compare(main9, main10));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {10,2}), ComparateurMain.compare(main10, main9));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.double_paire, new Carte[] {new Carte(10),new Carte(2)}), ComparateurMain.compare(main9, main10));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.double_paire, new Carte[] {new Carte(10),new Carte(2)}), ComparateurMain.compare(main10, main9));
     }
 }

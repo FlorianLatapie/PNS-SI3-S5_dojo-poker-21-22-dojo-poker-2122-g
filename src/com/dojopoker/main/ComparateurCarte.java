@@ -27,7 +27,7 @@ public class ComparateurCarte {
         return 0;
     }
 
-    static int[] contientSuite(Main main) {
+    static Carte[] contientSuite(Main main) {
         List<Integer> liste = new ArrayList<Integer>();
         int compteur = 1;
         for(int i = 0; i < main.getCartesSize(); i++) {
@@ -41,10 +41,15 @@ public class ComparateurCarte {
             }
         }
 
-        if(compteur == 5) {
-            return new int[] {liste.get(0), liste.get(1), liste.get(2), liste.get(3), liste.get(4)};
+        Carte[] tableauRetour = new Carte[liste.size()];
+        for(int i=0; i < liste.size(); i++){
+            tableauRetour[i]  = new Carte(liste.get(i));
         }
-        return new int[] {0};
+
+        if(compteur == 5) {
+            return tableauRetour;
+        }
+        return new Carte[]{new Carte(0)};
 
     }
 
@@ -99,11 +104,11 @@ public class ComparateurCarte {
         return 0;
     }
 
-    static int[] contientFull(Main main) {
+    static Carte[] contientFull(Main main) {
         if ((contientBrelan(main) != 0 && contientPaire(main) != 0)) {
-            return new int[]{contientBrelan(main), contientPaire(main)};
+            return new Carte[]{new Carte(contientBrelan(main)), new Carte(contientPaire(main))};
         } else {
-            return new int[]{0, 0};
+            return new Carte[]{new Carte(0)};
         }
     }
 

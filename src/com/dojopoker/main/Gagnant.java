@@ -5,10 +5,14 @@ import java.util.List;
 
 public class Gagnant {
     private int joueur;
-    private List<Integer> cartesGagnantes;
+    private int valeurRaisonVictoire;
+    private String raisonVictoire;
+    private List<Carte> cartesGagnantes;
     private VictoiresPossibles victoire;
 
-    public Gagnant(int joueur, VictoiresPossibles victoire, Integer... cartesGagnantes) {
+
+
+    public Gagnant(int joueur, VictoiresPossibles victoire, Carte... cartesGagnantes) {
         this.joueur = joueur;
         this.cartesGagnantes = new ArrayList<>();
         if (cartesGagnantes != null) {
