@@ -79,6 +79,28 @@ public class FullTest {
         Assert.assertEquals(new Gagnant(1, VictoiresPossibles.full, new Integer[]{2,1}), ComparateurMain.compare(main1, main2));
         Assert.assertEquals(new Gagnant(2, VictoiresPossibles.full, new Integer[]{2,1}), ComparateurMain.compare(main2, main1));
 
+
+        List<Carte> listeMain3 = new ArrayList<>();
+        listeMain3.add(new Carte(3));
+        listeMain3.add(new Carte(3));
+        listeMain3.add(new Carte(4));
+        listeMain3.add(new Carte(4));
+        listeMain3.add(new Carte(4));
+
+        Main main3 = new Main(listeMain3);
+
+        List<Carte> listeMain4 = new ArrayList<>();
+        listeMain4.add(new Carte(1));
+        listeMain4.add(new Carte(1));
+        listeMain4.add(new Carte(2));
+        listeMain4.add(new Carte(2));
+        listeMain4.add(new Carte(3));
+
+        Main main4 = new Main(listeMain4);
+
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.full, new Integer[]{4,3}), ComparateurMain.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.full, new Integer[]{4,3}), ComparateurMain.compare(main4, main3));
+
     }
 
     @Test

@@ -15,10 +15,10 @@ public class ComparateurMain {
         /*if (cartes.contientQinteFlush(main1) != 0 || cartes.contientQinteFlush(main2) != 0) {
             return compareQinteFlush(main1, main2);
         }
-        else */if (cartes.contientCarre(main1) != 0 || cartes.contientCarre(main2) != 0) {
+        else */
+        if (cartes.contientCarre(main1) != 0 || cartes.contientCarre(main2) != 0) {
             return compareCarre(main1, main2);
-        }
-        else if (fullMain1[0]!=0 || fullMain2[0]!=0) {
+        } else if (fullMain1[0] != 0 || fullMain2[0] != 0) {
             return compareFull(main1, main2);
         }/*
         else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
@@ -27,16 +27,13 @@ public class ComparateurMain {
         else if (cartes.contientSuite(main1) != 0 || cartes.contientSuite(main2) != 0) {
             return compareSuite(main1, main2);
         }
-        */else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
+        */ else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
-        }
-        else if(paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0){
+        } else if (paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0) {
             return compareDoublePaires(main1, main2);
-        }
-        else if ((cartes.contientPaire(main1)!=0 || cartes.contientPaire(main2)!=0)) {
+        } else if ((cartes.contientPaire(main1) != 0 || cartes.contientPaire(main2) != 0)) {
             return comparePaires(main1, main2);
-        }
-        else {
+        } else {
             return compareCarteLaPlusHaute(main1, main2);
         }
     }
@@ -69,7 +66,7 @@ public class ComparateurMain {
     }
 
     private static Gagnant comparePaires(Main main1, Main main2) {
-        if (cartes.contientPaire(main1)!=0 && cartes.contientPaire(main2)!=0) {
+        if (cartes.contientPaire(main1) != 0 && cartes.contientPaire(main2) != 0) {
             if (cartes.contientPaire(main1) > cartes.contientPaire(main2)) {
                 return new Gagnant(1, VictoiresPossibles.paire, cartes.contientPaire(main1));
             } else if (cartes.contientPaire(main1) < cartes.contientPaire(main2)) {
@@ -80,7 +77,7 @@ public class ComparateurMain {
 
                 return compareCarteLaPlusHaute(main1, main2);
             }
-        } else if (cartes.contientPaire(main1)!=0) {
+        } else if (cartes.contientPaire(main1) != 0) {
             return new Gagnant(1, VictoiresPossibles.paire, cartes.contientPaire(main1));
         } else {
             return new Gagnant(2, VictoiresPossibles.paire, cartes.contientPaire(main2));
@@ -88,7 +85,7 @@ public class ComparateurMain {
     }
 
     private static Gagnant compareBrelans(Main main1, Main main2) {
-        if(cartes.contientBrelan(main1) != 0 && cartes.contientBrelan(main2) != 0) {
+        if (cartes.contientBrelan(main1) != 0 && cartes.contientBrelan(main2) != 0) {
             if (cartes.contientBrelan(main1) > cartes.contientBrelan(main2)) {
                 return new Gagnant(1, VictoiresPossibles.brelan, cartes.contientBrelan(main1));
             } else if (cartes.contientBrelan(main1) < cartes.contientBrelan(main2)) {
@@ -111,30 +108,30 @@ public class ComparateurMain {
         int[] paireMain1 = cartes.contientDoublePaires(main1);
         int[] paireMain2 = cartes.contientDoublePaires(main2);
 
-        if(paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] != 0 && paireMain2[1] != 0){
-            if(paireMain1[0] > paireMain2[0]) {
-                return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
+        if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] != 0 && paireMain2[1] != 0) {
+            if (paireMain1[0] > paireMain2[0]) {
+                return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[]{paireMain1[0], paireMain1[1]});
             } else if (paireMain1[0] < paireMain2[0]) {
-                return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+                return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[]{paireMain2[0], paireMain2[1]});
             } else {
-                if(paireMain1[1] > paireMain2[1]){
-                    return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
-                } else if(paireMain1[1] < paireMain2[1]){
-                    return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+                if (paireMain1[1] > paireMain2[1]) {
+                    return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[]{paireMain1[0], paireMain1[1]});
+                } else if (paireMain1[1] < paireMain2[1]) {
+                    return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[]{paireMain2[0], paireMain2[1]});
                 } else {
-                    if(paireMain1[2] > paireMain2[2]){
-                        return new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Integer[] {paireMain1[2]});
-                    } else if(paireMain1[2] < paireMain2[2]){
-                        return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[] {paireMain2[2]});
+                    if (paireMain1[2] > paireMain2[2]) {
+                        return new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Integer[]{paireMain1[2]});
+                    } else if (paireMain1[2] < paireMain2[2]) {
+                        return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[]{paireMain2[2]});
                     } else {
                         return new Gagnant(0, VictoiresPossibles.egalite, null);
                     }
                 }
             }
-        } else if(paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] == 0 && paireMain2[1] == 0){
-            return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[] {paireMain1[0], paireMain1[1]});
+        } else if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] == 0 && paireMain2[1] == 0) {
+            return new Gagnant(1, VictoiresPossibles.double_paire, new Integer[]{paireMain1[0], paireMain1[1]});
         } else {
-            return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[] {paireMain2[0], paireMain2[1]});
+            return new Gagnant(2, VictoiresPossibles.double_paire, new Integer[]{paireMain2[0], paireMain2[1]});
         }
     }
 
@@ -158,35 +155,32 @@ public class ComparateurMain {
 
     }
 
-    private static Gagnant compareFull(Main main1, Main main2){
+    private static Gagnant compareFull(Main main1, Main main2) {
         int[] fullMain1 = cartes.contientFull(main1);
         int[] fullMain2 = cartes.contientFull(main2);
 
-        if(fullMain1[0]!=0 && fullMain2[0]!=0){
-            if(cartes.contientBrelan(main1) > cartes.contientBrelan(main2)){
-                return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0],fullMain1[1]});
-            }
-            else if(cartes.contientBrelan(main2) > cartes.contientBrelan(main1)){
-                return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0],fullMain2[1]});
-            }
-            else{
-                if(cartes.contientPaire(main1) > cartes.contientPaire(main2)){
-                    return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0],fullMain1[1]});
-                }
-                else if(cartes.contientPaire(main2) > cartes.contientPaire(main1)){
+        System.out.println(fullMain1);
+        System.out.println(fullMain2);
+
+        if (fullMain1[0] != 0 && fullMain2[0] != 0) {
+            if (fullMain1[0] > fullMain2[0]) {
+                return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0], fullMain1[1]});
+            } else if (fullMain2[0] > fullMain1[0]) {
+                return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
+            } else {
+                if (fullMain1[1] > fullMain2[1]) {
+                    return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0], fullMain1[1]});
+                } else if (fullMain2[1] > fullMain1[1]) {
                     return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
-                }
-                else{
+                } else {
                     //ATTENTION! CAS D'EGALITE NORMALEMENT IMPOSSIBLE
                     return new Gagnant(0, VictoiresPossibles.egalite, null);
                 }
             }
-        }
-        else if(fullMain1[0]!=0 && fullMain2[0]==0){
-            return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0],fullMain1[1]});
-        }
-        else{
-            return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0],fullMain2[1]});
+        } else if (fullMain1[0] != 0 && fullMain2[0] == 0) {
+            return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0], fullMain1[1]});
+        } else {
+            return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
         }
 
 
