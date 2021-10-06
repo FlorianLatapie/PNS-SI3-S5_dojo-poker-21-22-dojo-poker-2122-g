@@ -159,9 +159,6 @@ public class ComparateurMain {
         int[] fullMain1 = cartes.contientFull(main1);
         int[] fullMain2 = cartes.contientFull(main2);
 
-        System.out.println(fullMain1);
-        System.out.println(fullMain2);
-
         if (fullMain1[0] != 0 && fullMain2[0] != 0) {
             if (fullMain1[0] > fullMain2[0]) {
                 return new Gagnant(1, VictoiresPossibles.full, new Integer[]{fullMain1[0], fullMain1[1]});

@@ -130,5 +130,49 @@ public class CarreTest {
     }
 
 
+    @Test
+    public void carreVsFullTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(5));
+        listeMain1.add(new Carte(1));
+        listeMain1.add(new Carte(5));
+        listeMain1.add(new Carte(1));
+        listeMain1.add(new Carte(1));
 
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(3));
+        listeMain2.add(new Carte(3));
+        listeMain2.add(new Carte(2));
+        listeMain2.add(new Carte(3));
+        listeMain2.add(new Carte(3));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carre, new Integer[] {3}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carre, new Integer[] {3}), ComparateurMain.compare(main2, main1));
+
+        List<Carte> listeMain9 = new ArrayList<>();
+        listeMain9.add(new Carte(1));
+        listeMain9.add(new Carte(1));
+        listeMain9.add(new Carte(2));
+        listeMain9.add(new Carte(2));
+        listeMain9.add(new Carte(2));
+
+        Main main9 = new Main(listeMain9);
+
+        List<Carte> listeMain10 = new ArrayList<>();
+        listeMain10.add(new Carte(10));
+        listeMain10.add(new Carte(10));
+        listeMain10.add(new Carte(10));
+        listeMain10.add(new Carte(10));
+        listeMain10.add(new Carte(9));
+
+        Main main10 = new Main(listeMain10);
+
+        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carre, new Integer[] {10}), ComparateurMain.compare(main9, main10));
+        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carre, new Integer[] {10}), ComparateurMain.compare(main10, main9));
+        Assert.assertEquals(new Gagnant(0, VictoiresPossibles.egalite,null), ComparateurMain.compare(main10,main10));
+    }
 }
