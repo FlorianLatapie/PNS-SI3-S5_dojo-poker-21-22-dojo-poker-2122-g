@@ -1,6 +1,8 @@
 package com.dojopoker.main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ComparateurCarte {
@@ -87,6 +89,15 @@ public class ComparateurCarte {
         return 0;
     }
 
+    static int[] contientFull(Main main){
+        if(contientBrelan(main)!=0 && contientPaire(main)!=0 && contientBrelan(main)!=contientPaire(main)){
+            return new int[]{contientBrelan(main),contientPaire(main)};
+        }
+        else{
+            return new int[]{0,0};
+        }
+    }
+
 
     static void supprimerCartes(Main main, int valeurCarte, int nbASuppr) {
         for (int j = 0; j < nbASuppr; j++) {
@@ -98,4 +109,6 @@ public class ComparateurCarte {
             }
         }
     }
+
+
 }
