@@ -11,6 +11,8 @@ public class ComparateurMain {
         int[] paireMain2 = cartes.contientDoublePaires(main2);
         int[] fullMain1 = cartes.contientFull(main1);
         int[] fullMain2 = cartes.contientFull(main2);
+        int[] quinteMain1 = cartes.contientQuinte(main1);
+        int[] quinteMain2 = cartes.contientQuinte(main2);
 
         /*if (cartes.contientQinteFlush(main1) != 0 || cartes.contientQinteFlush(main2) != 0) {
             return compareQinteFlush(main1, main2);
@@ -23,11 +25,11 @@ public class ComparateurMain {
         }/*
         else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
             return compareCouleur(main1, main2);
+        }*/
+        else if (quinteMain1[0] != 0 || quinteMain2[0] != 0) {
+            return compareQuinte(main1, main2);
         }
-        else if (cartes.contientSuite(main1) != 0 || cartes.contientSuite(main2) != 0) {
-            return compareSuite(main1, main2);
-        }
-        */ else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
+         else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
         } else if (paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0) {
             return compareDoublePaires(main1, main2);
@@ -102,6 +104,24 @@ public class ComparateurMain {
             return new Gagnant(2, VictoiresPossibles.brelan, cartes.contientBrelan(main2));
         }
 
+    }
+
+    private static Gagnant compareQuinte(Main main1, Main main2) {
+        int[] quinteMain1 = cartes.contientQuinte(main1);
+        int[] quinteMain2 = cartes.contientQuinte(main2);
+        if(quinteMain1[0] != 0 && quinteMain2[0] != 0) {
+            if(quinteMain1[4] > quinteMain2[4]) {
+                return new Gagnant(1, VictoiresPossibles.quinte, new Integer[] {quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
+            } else if(quinteMain1[4] < quinteMain2[4]) {
+                return new Gagnant(2, VictoiresPossibles.quinte, new Integer[] {quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+            } else {
+                return new Gagnant(0, VictoiresPossibles.egalite, null);
+            }
+        } else if (quinteMain1[0] != 0) {
+            return new Gagnant(1, VictoiresPossibles.quinte, new Integer[] {quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
+        } else {
+            return new Gagnant(2, VictoiresPossibles.quinte, new Integer[] {quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+        }
     }
 
     private static Gagnant compareDoublePaires(Main main1, Main main2) {

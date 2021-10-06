@@ -1,9 +1,6 @@
 package com.dojopoker.main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ComparateurCarte {
     private ComparateurCarte() {
@@ -28,6 +25,28 @@ public class ComparateurCarte {
             }
         }
         return 0;
+    }
+
+    static int[] contientQuinte(Main main) {
+        List<Integer> liste = new ArrayList<Integer>();
+        int compteur = 1;
+        for(int i = 0; i < main.getCartesSize(); i++) {
+            liste.add(main.getCartes().get(i).getValeur());
+        }
+        Collections.sort(liste);
+
+
+        for(int j = 0; j < main.getCartesSize()-1; j++) {
+            if (liste.get(j) == (liste.get(j+1)-1)) {
+                compteur++;
+            }
+        }
+
+        if(compteur == main.getCartesSize()) {
+            return new int[] {liste.get(0), liste.get(1), liste.get(2), liste.get(3), liste.get(4)};
+        }
+        return new int[] {0};
+
     }
 
     static int[] contientDoublePaires(Main main) {
