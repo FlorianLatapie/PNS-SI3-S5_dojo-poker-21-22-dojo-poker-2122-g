@@ -42,7 +42,7 @@ public class ComparateurCarte {
             }
         }
 
-        if(compteur == main.getCartesSize()) {
+        if(compteur == 5) {
             return new int[] {liste.get(0), liste.get(1), liste.get(2), liste.get(3), liste.get(4)};
         }
         return new int[] {0};

@@ -20,7 +20,7 @@ public class DoublePaireTest {
         Main main1 = new Main(listeMain1);
 
         List<Carte> listeMain2 = new ArrayList<>();
-        listeMain2.add(new Carte(6));
+        listeMain2.add(new Carte(5));
         listeMain2.add(new Carte(7));
         listeMain2.add(new Carte(8));
         listeMain2.add(new Carte(9));
