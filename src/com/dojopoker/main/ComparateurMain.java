@@ -75,7 +75,7 @@ public class ComparateurMain {
                 cartes.supprimerCartes(main1, cartes.contientPaire(main1), 2);
                 cartes.supprimerCartes(main2, cartes.contientPaire(main2), 2);
 
-                return compareCarteLaPlusHaute(main1, main2);
+                return ComparateurMain.compare(main1, main2);
             }
         } else if (cartes.contientPaire(main1) != 0) {
             return new Gagnant(1, VictoiresPossibles.paire, cartes.contientPaire(main1));
@@ -94,7 +94,7 @@ public class ComparateurMain {
                 cartes.supprimerCartes(main1, cartes.contientBrelan(main1), 3);
                 cartes.supprimerCartes(main2, cartes.contientBrelan(main2), 3);
 
-                return compareCarteLaPlusHaute(main1, main2);
+                return ComparateurMain.compare(main1, main2);
             }
         } else if (cartes.contientBrelan(main1) != 0) {
             return new Gagnant(1, VictoiresPossibles.brelan, cartes.contientBrelan(main1));
@@ -183,7 +183,7 @@ public class ComparateurMain {
                 cartes.supprimerCartes(main1, cartes.contientCarre(main1), 4);
                 cartes.supprimerCartes(main2, cartes.contientCarre(main2), 4);
 
-                return compareCarteLaPlusHaute(main1, main2);
+                return ComparateurMain.compare(main1, main2);
             }
         } else if (cartes.contientCarre(main1) != 0) {
             return new Gagnant(1, VictoiresPossibles.carre, cartes.contientCarre(main1));
