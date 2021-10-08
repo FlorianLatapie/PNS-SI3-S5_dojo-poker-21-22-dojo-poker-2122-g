@@ -10,6 +10,17 @@ import java.util.List;
 
 public class PlusHauteCarteTest {
     @Test
+    public void pasDeCarteTest(){
+        List<Carte> listeMain1 = new ArrayList<>();
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(0,VictoiresPossibles.egalite, null), ComparateurMain.compare(main1, main2));
+    }
+
+    @Test
     public void main1GagneTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(2));

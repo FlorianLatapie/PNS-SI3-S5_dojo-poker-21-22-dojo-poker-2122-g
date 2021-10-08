@@ -25,11 +25,9 @@ public class ComparateurMain {
         }/*
         else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
             return compareCouleur(main1, main2);
-        }*/
-        else if (quinteMain1[0] != 0 || quinteMain2[0] != 0) {
+        }*/ else if (quinteMain1[0] != 0 || quinteMain2[0] != 0) {
             return compareQuinte(main1, main2);
-        }
-         else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
+        } else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
         } else if (paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0) {
             return compareDoublePaires(main1, main2);
@@ -109,18 +107,25 @@ public class ComparateurMain {
     private static Gagnant compareQuinte(Main main1, Main main2) {
         int[] quinteMain1 = cartes.contientQuinte(main1);
         int[] quinteMain2 = cartes.contientQuinte(main2);
-        if(quinteMain1[0] != 0 && quinteMain2[0] != 0) {
-            if(quinteMain1[4] > quinteMain2[4]) {
-                return new Gagnant(1, VictoiresPossibles.quinte, new Integer[] {quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
-            } else if(quinteMain1[4] < quinteMain2[4]) {
-                return new Gagnant(2, VictoiresPossibles.quinte, new Integer[] {quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+        if (quinteMain1[0] != 0 && quinteMain2[0] != 0) {
+            if (quinteMain1[4] > quinteMain2[4]) {
+                return new Gagnant(1, VictoiresPossibles.quinte, new Integer[]{quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
+            } else if (quinteMain1[4] < quinteMain2[4]) {
+                return new Gagnant(2, VictoiresPossibles.quinte, new Integer[]{quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
             } else {
-                return new Gagnant(0, VictoiresPossibles.egalite, null);
+                //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                for (int i = 0; i < quinteMain1.length; i++) {
+                    ComparateurCarte.supprimerCartes(main1, quinteMain1[i], 1);
+                }
+                for (int i = 0; i < quinteMain2.length; i++) {
+                    ComparateurCarte.supprimerCartes(main2, quinteMain1[i], 1);
+                }
+                return ComparateurMain.compare(main1, main2);
             }
         } else if (quinteMain1[0] != 0) {
-            return new Gagnant(1, VictoiresPossibles.quinte, new Integer[] {quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
+            return new Gagnant(1, VictoiresPossibles.quinte, new Integer[]{quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
         } else {
-            return new Gagnant(2, VictoiresPossibles.quinte, new Integer[] {quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+            return new Gagnant(2, VictoiresPossibles.quinte, new Integer[]{quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
         }
     }
 
@@ -144,7 +149,20 @@ public class ComparateurMain {
                     } else if (paireMain1[2] < paireMain2[2]) {
                         return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[]{paireMain2[2]});
                     } else {
-                        return new Gagnant(0, VictoiresPossibles.egalite, null);
+                        //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                        for (int i = 0; i < paireMain1.length; i++) {
+                            if (i <= 1) {
+                                ComparateurCarte.supprimerCartes(main1, paireMain1[i], 1);
+                            }
+                            ComparateurCarte.supprimerCartes(main1, paireMain1[i], 1);
+                        }
+                        for (int i = 0; i < paireMain2.length; i++) {
+                            if (i <= 1) {
+                                ComparateurCarte.supprimerCartes(main1, paireMain2[i], 1);
+                            }
+                            ComparateurCarte.supprimerCartes(main1, paireMain2[i], 1);
+                        }
+                        return ComparateurMain.compare(main1, main2);
                     }
                 }
             }
@@ -191,7 +209,22 @@ public class ComparateurMain {
                     return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
                 } else {
                     //ATTENTION! CAS D'EGALITE NORMALEMENT IMPOSSIBLE
-                    return new Gagnant(0, VictoiresPossibles.egalite, null);
+                    //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                    for (int i = 0; i < fullMain1.length; i++) {
+                        if (i <= 1) {
+                            ComparateurCarte.supprimerCartes(main1, fullMain1[i], 1);
+                        }
+                        ComparateurCarte.supprimerCartes(main1, fullMain1[i], 1);
+                        ComparateurCarte.supprimerCartes(main1, fullMain1[i], 1);
+                    }
+                    for (int i = 0; i < fullMain2.length; i++) {
+                        if (i <= 1) {
+                            ComparateurCarte.supprimerCartes(main1, fullMain2[i], 1);
+                        }
+                        ComparateurCarte.supprimerCartes(main1, fullMain2[i], 1);
+                        ComparateurCarte.supprimerCartes(main1, fullMain2[i], 1);
+                    }
+                    return ComparateurMain.compare(main1, main2);
                 }
             }
         } else if (fullMain1[0] != 0 && fullMain2[0] == 0) {
@@ -199,9 +232,5 @@ public class ComparateurMain {
         } else {
             return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
         }
-
-
     }
-
-
 }
