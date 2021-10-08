@@ -1,23 +1,16 @@
 package com.dojopoker.main;
 
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(System.in);
+            MoteurJeu mj = new MoteurJeu();
+            mj.lancerJeu();
 
-            System.out.print("Entrez main 1 : ");
-            Main main1 = EntreeSortie.reccupereMain(scanner.nextLine());
-            System.out.print("Entrez main 2 : ");
-            Main main2 = EntreeSortie.reccupereMain(scanner.nextLine());
-
-            Gagnant m = ComparateurMain.compare(main1, main2);
-            System.out.println(m.toString());
-            main(args);
+            main(args);// on relance automatiquement le jeu à la fin
         }catch (Exception e){
-            if (e instanceof NoSuchElementException) return;
+            if (e instanceof NoSuchElementException) return; // pour les erreurs de fin de fichier en test unitaire
             System.out.println("Une erreur s'est produite, veuillez recommencer\n"+e.getMessage());
             main(args);
         }

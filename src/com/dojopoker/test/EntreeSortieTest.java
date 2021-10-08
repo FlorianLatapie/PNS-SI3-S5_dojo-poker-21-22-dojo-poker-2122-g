@@ -21,11 +21,14 @@ public class EntreeSortieTest {
         cartesAttendues.add(new Carte(1));
         Main attendu = new Main(cartesAttendues);
 
-        Assert.assertEquals(attendu, EntreeSortie.reccupereMain("1 1 1 1 1"));
+        EntreeSortie es = new EntreeSortie();
+
+        Assert.assertEquals(attendu, es.reccupereMain("1 1 1 1 1"));
     }
 
     @Test (expected = Exception.class)
     public void exceptionReccupereMainTest() throws Exception {
-        EntreeSortie.reccupereMain("1");
+        EntreeSortie es = new EntreeSortie();
+        es.reccupereMain("1");
     }
 }

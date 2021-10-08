@@ -1,8 +1,5 @@
 package com.dojopoker.main;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class ComparateurMain {
     private static ComparateurCarte cartes;
 
@@ -11,8 +8,8 @@ public class ComparateurMain {
         int[] paireMain2 = cartes.contientDoublePaires(main2);
         int[] fullMain1 = cartes.contientFull(main1);
         int[] fullMain2 = cartes.contientFull(main2);
-        int[] quinteMain1 = cartes.contientQuinte(main1);
-        int[] quinteMain2 = cartes.contientQuinte(main2);
+        int[] suiteMain1 = cartes.contientSuite(main1);
+        int[] suiteMain2 = cartes.contientSuite(main2);
 
         /*if (cartes.contientQinteFlush(main1) != 0 || cartes.contientQinteFlush(main2) != 0) {
             return compareQinteFlush(main1, main2);
@@ -25,8 +22,8 @@ public class ComparateurMain {
         }/*
         else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
             return compareCouleur(main1, main2);
-        }*/ else if (quinteMain1[0] != 0 || quinteMain2[0] != 0) {
-            return compareQuinte(main1, main2);
+        }*/ else if (suiteMain1[0] != 0 || suiteMain2[0] != 0) {
+            return compareSuite(main1, main2);
         } else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
         } else if (paireMain1[0] != 0 && paireMain1[1] != 0 || paireMain2[0] != 0 && paireMain2[1] != 0) {
@@ -104,28 +101,28 @@ public class ComparateurMain {
 
     }
 
-    private static Gagnant compareQuinte(Main main1, Main main2) {
-        int[] quinteMain1 = cartes.contientQuinte(main1);
-        int[] quinteMain2 = cartes.contientQuinte(main2);
-        if (quinteMain1[0] != 0 && quinteMain2[0] != 0) {
-            if (quinteMain1[4] > quinteMain2[4]) {
-                return new Gagnant(1, VictoiresPossibles.quinte, new Integer[]{quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
-            } else if (quinteMain1[4] < quinteMain2[4]) {
-                return new Gagnant(2, VictoiresPossibles.quinte, new Integer[]{quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+    private static Gagnant compareSuite(Main main1, Main main2) {
+        int[] suiteMain1 = cartes.contientSuite(main1);
+        int[] suiteMain2 = cartes.contientSuite(main2);
+        if (suiteMain1[0] != 0 && suiteMain2[0] != 0) {
+            if (suiteMain1[4] > suiteMain2[4]) {
+                return new Gagnant(1, VictoiresPossibles.suite, new Integer[]{suiteMain1[0], suiteMain1[1], suiteMain1[2], suiteMain1[3], suiteMain1[4]});
+            } else if (suiteMain1[4] < suiteMain2[4]) {
+                return new Gagnant(2, VictoiresPossibles.suite, new Integer[]{suiteMain2[0], suiteMain2[1], suiteMain2[2], suiteMain2[3], suiteMain2[4]});
             } else {
                 //return new Gagnant(0, VictoiresPossibles.egalite, null);
-                for (int i = 0; i < quinteMain1.length; i++) {
-                    ComparateurCarte.supprimerCartes(main1, quinteMain1[i], 1);
+                for (int i = 0; i < suiteMain1.length; i++) {
+                    ComparateurCarte.supprimerCartes(main1, suiteMain1[i], 1);
                 }
-                for (int i = 0; i < quinteMain2.length; i++) {
-                    ComparateurCarte.supprimerCartes(main2, quinteMain1[i], 1);
+                for (int i = 0; i < suiteMain2.length; i++) {
+                    ComparateurCarte.supprimerCartes(main2, suiteMain1[i], 1);
                 }
                 return ComparateurMain.compare(main1, main2);
             }
-        } else if (quinteMain1[0] != 0) {
-            return new Gagnant(1, VictoiresPossibles.quinte, new Integer[]{quinteMain1[0], quinteMain1[1], quinteMain1[2], quinteMain1[3], quinteMain1[4]});
+        } else if (suiteMain1[0] != 0) {
+            return new Gagnant(1, VictoiresPossibles.suite, new Integer[]{suiteMain1[0], suiteMain1[1], suiteMain1[2], suiteMain1[3], suiteMain1[4]});
         } else {
-            return new Gagnant(2, VictoiresPossibles.quinte, new Integer[]{quinteMain2[0], quinteMain2[1], quinteMain2[2], quinteMain2[3], quinteMain2[4]});
+            return new Gagnant(2, VictoiresPossibles.suite, new Integer[]{suiteMain2[0], suiteMain2[1], suiteMain2[2], suiteMain2[3], suiteMain2[4]});
         }
     }
 

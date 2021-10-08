@@ -27,14 +27,13 @@ public class ComparateurCarte {
         return 0;
     }
 
-    static int[] contientQuinte(Main main) {
+    static int[] contientSuite(Main main) {
         List<Integer> liste = new ArrayList<Integer>();
         int compteur = 1;
         for(int i = 0; i < main.getCartesSize(); i++) {
             liste.add(main.getCartes().get(i).getValeur());
         }
         Collections.sort(liste);
-
 
         for(int j = 0; j < main.getCartesSize()-1; j++) {
             if (liste.get(j) == (liste.get(j+1)-1)) {
@@ -119,6 +118,4 @@ public class ComparateurCarte {
             }
         }
     }
-
-
 }

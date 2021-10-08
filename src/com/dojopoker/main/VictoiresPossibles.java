@@ -6,7 +6,7 @@ public enum VictoiresPossibles {
     paire(2, "une paire"),
     double_paire(3, "double paire"),
     brelan(4, "brelan"),
-    quinte(5, "suite"),
+    suite(5, "suite"),
     couleur(6, "couleur"),
     full(7, "full"),
     carre(8, "carré"),
