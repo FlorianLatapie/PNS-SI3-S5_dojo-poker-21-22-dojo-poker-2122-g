@@ -54,7 +54,7 @@ public class ComparateurMain {
         }
 
         if (resMain1 == resMain2) {
-            return new Gagnant(0, VictoiresPossibles.egalite, null);
+            return new Gagnant(0, VictoiresPossibles.egalite);
         } else if (resMain1 > resMain2) {
             return new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, lePlusHaut.getValeur());
         } else {
@@ -110,7 +110,7 @@ public class ComparateurMain {
             } else if (suiteMain1[4] < suiteMain2[4]) {
                 return new Gagnant(2, VictoiresPossibles.suite, new Integer[]{suiteMain2[0], suiteMain2[1], suiteMain2[2], suiteMain2[3], suiteMain2[4]});
             } else {
-                //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                //return new Gagnant(0, VictoiresPossibles.egalite);
                 for (int i = 0; i < suiteMain1.length; i++) {
                     ComparateurCarte.supprimerCartes(main1, suiteMain1[i], 1);
                 }
@@ -146,7 +146,7 @@ public class ComparateurMain {
                     } else if (paireMain1[2] < paireMain2[2]) {
                         return new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Integer[]{paireMain2[2]});
                     } else {
-                        //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                        //return new Gagnant(0, VictoiresPossibles.egalite);
                         for (int i = 0; i < paireMain1.length; i++) {
                             if (i <= 1) {
                                 ComparateurCarte.supprimerCartes(main1, paireMain1[i], 1);
@@ -206,7 +206,7 @@ public class ComparateurMain {
                     return new Gagnant(2, VictoiresPossibles.full, new Integer[]{fullMain2[0], fullMain2[1]});
                 } else {
                     //ATTENTION! CAS D'EGALITE NORMALEMENT IMPOSSIBLE
-                    //return new Gagnant(0, VictoiresPossibles.egalite, null);
+                    //return new Gagnant(0, VictoiresPossibles.egalite);
                     for (int i = 0; i < fullMain1.length; i++) {
                         if (i <= 1) {
                             ComparateurCarte.supprimerCartes(main1, fullMain1[i], 1);

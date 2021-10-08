@@ -97,5 +97,6 @@ public class PaireTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 5), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1,VictoiresPossibles.carte_la_plus_haute, 5), ComparateurMain.compare(main2, main1));
     }
 }

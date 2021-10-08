@@ -41,6 +41,7 @@ public class PlusHauteCarteTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals(new Gagnant(1,VictoiresPossibles.carte_la_plus_haute, 8), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 8), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -64,6 +65,7 @@ public class PlusHauteCarteTest {
         Main main2 = new Main(listeMain2);
 
         Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 10), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1,VictoiresPossibles.carte_la_plus_haute, 10), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -107,5 +109,6 @@ public class PlusHauteCarteTest {
         Main main4 = new Main(listeMain4);
 
         Assert.assertEquals(new Gagnant(1,VictoiresPossibles.carte_la_plus_haute, 10), ComparateurMain.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(2,VictoiresPossibles.carte_la_plus_haute, 10), ComparateurMain.compare(main4, main3));
     }
 }

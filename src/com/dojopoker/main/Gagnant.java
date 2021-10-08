@@ -1,22 +1,15 @@
 package com.dojopoker.main;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Gagnant {
     private int joueur;
-    private int valeurRaisonVictoire;
-    private String raisonVictoire;
     private List<Integer> cartesGagnantes;
     private VictoiresPossibles victoire;
 
-
-
     public Gagnant(int joueur, VictoiresPossibles victoire, Integer... cartesGagnantes) {
         this.joueur = joueur;
-        this.valeurRaisonVictoire = valeurRaisonVictoire;
         this.cartesGagnantes = new ArrayList<>();
         if (cartesGagnantes != null) {
             for (int i = 0; i < cartesGagnantes.length; i++) {
@@ -25,7 +18,6 @@ public class Gagnant {
         }
         this.victoire = victoire;
     }
-
 
     private String cartesGagantsToString() {
         StringBuilder retour = new StringBuilder();
