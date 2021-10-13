@@ -47,7 +47,7 @@ public class Carte {
         //this.couleur = couleur;
     }
 
-    int getValeur() {
+    public int getValeur() {
         return valeur;
     }
 
