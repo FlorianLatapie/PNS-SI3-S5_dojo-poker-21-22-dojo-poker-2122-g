@@ -1,16 +1,16 @@
 package com.dojopoker.main;
 
 public enum VictoiresPossibles {
-    egalite(0, "Egalite"),
-    carte_la_plus_haute(1, "carte la plus haute"),
-    paire(2, "une paire"),
-    double_paire(3, "double paire"),
-    brelan(4, "brelan"),
-    suite(5, "suite"),
-    couleur(6, "couleur"),
-    full(7, "full"),
-    carre(8, "carré"),
-    quinte_flush(9, "quinte flush");
+    EGALITE(0, "Egalite"),
+    CARTE_LA_PLUS_HAUTE(1, "carte la plus haute"),
+    PAIRE(2, "une paire"),
+    DOUBLE_PAIRE(3, "double paire"),
+    BRELAN(4, "brelan"),
+    SUITE(5, "suite"),
+    COULEUR(6, "couleur"),
+    FULL(7, "full"),
+    CARRE(8, "carré"),
+    QUINTE_FLUSH(9, "quinte flush");
 
     private int val;
     private String valToString;

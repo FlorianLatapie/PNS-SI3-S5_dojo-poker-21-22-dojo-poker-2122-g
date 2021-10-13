@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.dojopoker.main.VictoiresPossibles.*;
+
 public class BrelanTest {
     @Test
     public void brelanVsCarteHauteTest() {
@@ -28,8 +30,8 @@ public class BrelanTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -52,8 +54,8 @@ public class BrelanTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -76,8 +78,8 @@ public class BrelanTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.brelan, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, BRELAN, new Carte[] {new Carte(1)}), ComparateurMain.compare(main2, main1));
     }
 
     @Test
@@ -100,8 +102,8 @@ public class BrelanTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), ComparateurMain.compare(main2, main1));
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(2));
@@ -121,10 +123,10 @@ public class BrelanTest {
 
         Main main4 = new Main(listeMain4);
 
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main3, main4));
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Carte[]{new Carte(5)}), ComparateurMain.compare(main4, main3));
+        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), ComparateurMain.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), ComparateurMain.compare(main4, main3));
 
-        Assert.assertEquals(new Gagnant(0, VictoiresPossibles.egalite, null), ComparateurMain.compare(main1, main1));
+        Assert.assertEquals(new Gagnant(0, EGALITE, null), ComparateurMain.compare(main1, main1));
     }
 
         @Test
@@ -147,8 +149,8 @@ public class BrelanTest {
 
         Main main6 = new Main(listeMain6);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.brelan, new Carte[] {new Carte(5)}), ComparateurMain.compare(main5, main6));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.brelan, new Carte[] {new Carte(5)}), ComparateurMain.compare(main6, main5));
+        Assert.assertEquals(new Gagnant(1, BRELAN, new Carte[] {new Carte(5)}), ComparateurMain.compare(main5, main6));
+        Assert.assertEquals(new Gagnant(2, BRELAN, new Carte[] {new Carte(5)}), ComparateurMain.compare(main6, main5));
 
         List<Carte> listeMain9 = new ArrayList<>();
         listeMain9.add(new Carte(10));
@@ -168,7 +170,7 @@ public class BrelanTest {
 
         Main main10 = new Main(listeMain10);
 
-        Assert.assertEquals(new Gagnant(1, VictoiresPossibles.carte_la_plus_haute, new Carte[] {new Carte(5)}), ComparateurMain.compare(main9, main10));
-        Assert.assertEquals(new Gagnant(2, VictoiresPossibles.carte_la_plus_haute, new Carte[] {new Carte(5)}), ComparateurMain.compare(main10, main9));
+        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[] {new Carte(5)}), ComparateurMain.compare(main9, main10));
+        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[] {new Carte(5)}), ComparateurMain.compare(main10, main9));
     }
 }
