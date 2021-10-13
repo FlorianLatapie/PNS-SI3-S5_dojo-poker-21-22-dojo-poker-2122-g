@@ -27,8 +27,8 @@ public class EntreeSortie {
             } else {
                 throw new Exception("La carte "valeur+couleur+" n'est pas acceptée, veuillez recommencer");
             }*/
-            int i = Integer.parseInt(carte);
-            retour.add(new Carte(i));
+
+            retour.add(new Carte(carte));
         }
         return retour;
     }
