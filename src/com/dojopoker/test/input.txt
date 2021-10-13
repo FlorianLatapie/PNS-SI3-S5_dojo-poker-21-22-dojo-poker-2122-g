@@ -1,2 +1,2 @@
-1 1 2 3 4
-1 2 3 4 5
+6Tr 6Co 2Pi 3Ca 4Pi
+8Tr VTr 3Tr 10Tr 5Tr

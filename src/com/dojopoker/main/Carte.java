@@ -4,8 +4,9 @@ public class Carte {
     private int valeur;
     private String valeurAff;
     private String couleur;
+    private boolean possedeCouleur;
 
-    public Carte(int valeur /*, String couleur*/){
+    public Carte(int valeur , String couleur){
         this.valeurAff = valeur+"";
         switch (valeur){
             case 11:
@@ -23,10 +24,11 @@ public class Carte {
             default:
                 this.valeur = valeur;
         }
-        //this.couleur = couleur;
+        this.couleur = couleur;
+        this.possedeCouleur = true;
     }
 
-    public Carte(String valeur/*, String couleur*/){
+    public Carte(String valeur, String couleur){
         this.valeurAff = valeur;
         switch (valeur){
             case "V":
@@ -44,7 +46,30 @@ public class Carte {
             default:
                 this.valeur = Integer.parseInt(valeur);
         }
-        //this.couleur = couleur;
+        this.couleur = couleur;
+        this.possedeCouleur = true;
+    }
+
+    public Carte(int valeur){
+        this.valeurAff = valeur+"";
+        switch (valeur){
+            case 11:
+                this.valeurAff = "V";
+                break;
+            case 12:
+                this.valeurAff = "D";
+                break;
+            case 13:
+                this.valeurAff = "R";
+                break;
+            case 14:
+                this.valeurAff = "A";
+                break;
+            default:
+                this.valeur = valeur;
+        }
+        this.couleur = "Pas de couleur";
+        this.possedeCouleur = false;
     }
 
     public int getValeur() {
@@ -59,14 +84,17 @@ public class Carte {
     public boolean equals(Object obj){
         if (obj instanceof Carte) {
             Carte carteAComparer = (Carte)obj;
-            return this.valeur == carteAComparer.valeur /* && this.couleur == carteAComparer.couleur*/;
+            return this.valeur == carteAComparer.valeur && this.couleur.equals(carteAComparer.couleur);
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return  valeurAff + ""// + couleur
-                ;
+        if(possedeCouleur){
+            return  valeurAff + "" + couleur;
+        } else {
+            return valeurAff;
+        }
     }
 }
