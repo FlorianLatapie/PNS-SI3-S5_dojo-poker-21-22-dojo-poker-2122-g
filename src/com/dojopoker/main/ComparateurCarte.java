@@ -10,29 +10,11 @@ public class ComparateurCarte {
         return contientPlusieurs(main, 2);
     }
 
-    static int contientBrelan(Main main) {
-        //return contientPlusieurs(main, 3);
-
-        for (int i = 0; i < main.getCartesSize(); i++) {
-            for (int j = 0; j < main.getCartesSize(); j++) {
-                for (int h = 0; h < main.getCartesSize(); h++) {
-                    if ((i != j) && (j != h) && (i != h) && (main.getVal(i) == main.getVal(j))
-                            && (main.getVal(j) == main.getVal(h))) {
-                        return main.getVal(i);
-                    }
-                }
-            }
-        }
-        return 0;
-    }
+    static int contientBrelan(Main main) { return contientPlusieurs(main, 3); }
 
     static Carte[] contientSuite(Main main) {
-        List<Integer> liste = new ArrayList<Integer>();
         int compteur = 1;
-        for(int i = 0; i < main.getCartesSize(); i++) {
-            liste.add(main.getVal(i));
-        }
-        Collections.sort(liste);
+        List<Integer> liste = main.valTri();
 
         for(int j = 0; j < main.getCartesSize()-1; j++) {
             if (liste.get(j) == (liste.get(j+1)-1)) {
@@ -48,7 +30,7 @@ public class ComparateurCarte {
         if(compteur == 5) {
             return tableauRetour;
         }
-        return new Carte[]{new Carte(0)};
+        return new Carte[] { new Carte(0) };
 
     }
 

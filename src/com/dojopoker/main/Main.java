@@ -1,5 +1,7 @@
 package com.dojopoker.main;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -37,5 +39,14 @@ public class Main {
 
     public Integer getVal(int i) {
         return this.cartes.get(i).getValeur();
+    }
+
+    public List<Integer> valTri() {
+        List<Integer> liste = new ArrayList<Integer>();
+        for(int i = 0; i < this.getCartesSize(); i++) {
+            liste.add(this.getVal(i));
+        }
+        Collections.sort(liste);
+        return liste;
     }
 }

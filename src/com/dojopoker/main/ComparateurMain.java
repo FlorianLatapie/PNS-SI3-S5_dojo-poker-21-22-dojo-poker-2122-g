@@ -42,14 +42,14 @@ public class ComparateurMain {
         Carte lePlusHaut = new Carte(-1);
 
         for (int i = 0; i < main1.getCartesSize(); i++) {
-            if (main1.getCartes().get(i).getValeur() > main2.getCartes().get(i).getValeur()) {
+            if (main1.getVal(i) > main2.getVal(i)) {
                 resMain1++;
-                if (main1.getCartes().get(i).getValeur() > lePlusHaut.getValeur()) {
+                if (main1.getVal(i) > lePlusHaut.getValeur()) {
                     lePlusHaut = main1.getCartes().get(i);
                 }
-            } else if (main1.getCartes().get(i).getValeur() < main2.getCartes().get(i).getValeur()) {
+            } else if (main1.getVal(i) < main2.getVal(i)) {
                 resMain2++;
-                if (main2.getCartes().get(i).getValeur() > lePlusHaut.getValeur()) {
+                if (main2.getVal(i) > lePlusHaut.getValeur()) {
                     lePlusHaut = main2.getCartes().get(i);
                 }
             }
