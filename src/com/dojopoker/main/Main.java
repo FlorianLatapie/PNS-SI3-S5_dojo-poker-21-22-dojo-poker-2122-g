@@ -34,4 +34,8 @@ public class Main {
         }
         return retour.toString();
     }
+
+    public Integer getVal(int i) {
+        return this.cartes.get(i).getValeur();
+    }
 }

@@ -16,10 +16,9 @@ public class ComparateurCarte {
         for (int i = 0; i < main.getCartesSize(); i++) {
             for (int j = 0; j < main.getCartesSize(); j++) {
                 for (int h = 0; h < main.getCartesSize(); h++) {
-                    if ((i != j) && (j != h) && (i != h) && (main.getCartes().get(i).getValeur()
-                            == main.getCartes().get(j).getValeur()) && (main.getCartes().get(j).getValeur()
-                            == main.getCartes().get(h).getValeur())) {
-                        return main.getCartes().get(i).getValeur();
+                    if ((i != j) && (j != h) && (i != h) && (main.getVal(i) == main.getVal(j))
+                            && (main.getVal(j) == main.getVal(h))) {
+                        return main.getVal(i);
                     }
                 }
             }
@@ -31,7 +30,7 @@ public class ComparateurCarte {
         List<Integer> liste = new ArrayList<Integer>();
         int compteur = 1;
         for(int i = 0; i < main.getCartesSize(); i++) {
-            liste.add(main.getCartes().get(i).getValeur());
+            liste.add(main.getVal(i));
         }
         Collections.sort(liste);
 
@@ -60,14 +59,14 @@ public class ComparateurCarte {
 
         for (int i = 0; i < main.getCartesSize(); i++) {
             for (int j = 0; j < main.getCartesSize(); j++) {
-                if (i != j && main.getCartes().get(i).getValeur() == main.getCartes().get(j).getValeur() && main.getCartes().get(j).getValeur() != paire1) {
+                if (i != j && main.getVal(i) == main.getVal(j) && main.getVal(j) != paire1) {
 
-                    paire2 = main.getCartes().get(j).getValeur();
+                    paire2 = main.getVal(j);
 
                     for (int k = 0; k < main.getCartesSize(); k++) {
-                        if (main.getCartes().get(k).getValeur() != paire1 && main.getCartes().get(k).getValeur() != paire2) {
+                        if (main.getVal(k) != paire1 && main.getVal(k) != paire2) {
 
-                            carteRestante = main.getCartes().get(k).getValeur();
+                            carteRestante = main.getVal(k);
 
                             return new int[]{paire2, paire1, carteRestante};
                         }
@@ -87,12 +86,12 @@ public class ComparateurCarte {
         Map<Integer, Integer> carteOccurences = new HashMap<>();
 
         for (int i = 0; i < main.getCartesSize(); i++) {
-            if (carteOccurences.containsKey(main.getCartes().get(i).getValeur())) {
+            if (carteOccurences.containsKey(main.getVal(i))) {
                 // la carte existe, occurence ++
-                carteOccurences.replace(main.getCartes().get(i).getValeur(), carteOccurences.get(main.getCartes().get(i).getValeur()) + 1);
+                carteOccurences.replace(main.getVal(i), carteOccurences.get(main.getVal(i)) + 1);
             } else {
                 // la carte n'est pas encore repertoriée, occurence = 1
-                carteOccurences.put(main.getCartes().get(i).getValeur(), 1);
+                carteOccurences.put(main.getVal(i), 1);
             }
         }
 
@@ -116,7 +115,7 @@ public class ComparateurCarte {
     static void supprimerCartes(Main main, int valeurCarte, int nbASuppr) {
         for (int j = 0; j < nbASuppr; j++) {
             for (int i = 0; i < main.getCartesSize(); i++) {
-                if (main.getCartes().get(i).getValeur() == valeurCarte) {
+                if (main.getVal(i) == valeurCarte) {
                     main.getCartes().remove(i);
                     break;
                 }
