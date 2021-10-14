@@ -59,6 +59,15 @@ public class EntreeSortie {
         return retour;
     }
 
+    public boolean deuxMainsUniques(Main main1, Main main2){
+        for(Carte carte : main1.getCartes()){
+            if(main2.getCartes().contains(carte)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Main reccupereMain(String entree) throws Exception {
         String[] saisies = entree.split(" ");
 
