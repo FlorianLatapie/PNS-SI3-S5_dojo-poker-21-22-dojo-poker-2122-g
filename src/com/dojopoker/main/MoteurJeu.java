@@ -3,6 +3,7 @@ package com.dojopoker.main;
 import java.util.Scanner;
 
 public class MoteurJeu {
+    private ComparateurMain cm = new ComparateurMain();
 
     public void lancerJeu() throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -13,7 +14,7 @@ public class MoteurJeu {
         System.out.print("Entrez main 2 : ");
         Main main2 = es.reccupereMain(scanner.nextLine());
 
-        Gagnant m = ComparateurMain.compare(main1, main2);
+        Gagnant m = cm.compare(main1, main2);
         System.out.println(m.toString());
     }
     

@@ -10,6 +10,9 @@ import java.util.List;
 import static com.dojopoker.main.VictoiresPossibles.*;
 
 public class SuiteTest {
+
+    private ComparateurMain cm = new ComparateurMain();
+
     @Test
     public void suiteVsCarteHauteTest() {
         List<Carte> listeMain1 = new ArrayList<>();
@@ -30,8 +33,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
 
     }
 
@@ -55,8 +58,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -79,8 +82,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -103,8 +106,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -127,8 +130,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(6)}), ComparateurMain.compare(main2, main1));
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(6)}), ComparateurMain.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(6)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(6)}), cm.compare(main1, main2));
 
     }
 
@@ -152,8 +155,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, FULL, new Carte[] {new Carte(2), new Carte(3)}), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, FULL, new Carte[] {new Carte(2), new Carte(3)}), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, FULL, new Carte[] {new Carte(2), new Carte(3)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, FULL, new Carte[] {new Carte(2), new Carte(3)}), cm.compare(main2, main1));
 
     }
 

@@ -10,6 +10,9 @@ import java.util.List;
 import static com.dojopoker.main.VictoiresPossibles.*;
 
 public class PaireTest {
+
+    private ComparateurMain cm = new ComparateurMain();
+
     @Test
     public void paireVsCarteHauteTest() {
         List<Carte> listeMain1 = new ArrayList<>();
@@ -29,8 +32,8 @@ public class PaireTest {
         listeMain2.add(new Carte(10));
 
         Main main2 = new Main(listeMain2);
-        Assert.assertEquals(new Gagnant(1,PAIRE, new Carte(1)), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2,PAIRE, new Carte(1)), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1,PAIRE, new Carte(1)), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2,PAIRE, new Carte(1)), cm.compare(main2, main1));
     }
 
     @Test
@@ -53,8 +56,8 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2,PAIRE, new Carte(2)), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1,PAIRE, new Carte(2)), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2,PAIRE, new Carte(2)), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1,PAIRE, new Carte(2)), cm.compare(main2, main1));
 
         List<Carte> listeMain3 = new ArrayList<>();
         listeMain3.add(new Carte(8));
@@ -74,8 +77,8 @@ public class PaireTest {
 
         Main main4 = new Main(listeMain4);
 
-        Assert.assertEquals(new Gagnant(2,CARTE_LA_PLUS_HAUTE, new Carte(5)), ComparateurMain.compare(main3, main4));
-        Assert.assertEquals(new Gagnant(1,CARTE_LA_PLUS_HAUTE, new Carte(5)), ComparateurMain.compare(main4, main3));
+        Assert.assertEquals(new Gagnant(2,CARTE_LA_PLUS_HAUTE, new Carte(5)), cm.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(1,CARTE_LA_PLUS_HAUTE, new Carte(5)), cm.compare(main4, main3));
     }
 
     @Test
@@ -98,7 +101,7 @@ public class PaireTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2,CARTE_LA_PLUS_HAUTE, new Carte(5)), ComparateurMain.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1,CARTE_LA_PLUS_HAUTE, new Carte(5)), ComparateurMain.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2,CARTE_LA_PLUS_HAUTE, new Carte(5)), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1,CARTE_LA_PLUS_HAUTE, new Carte(5)), cm.compare(main2, main1));
     }
 }

@@ -2,7 +2,7 @@ package com.dojopoker.main;
 
 import java.util.*;
 
-public class ComparateurCarte {
+/*public class ComparateurCarte {
     private ComparateurCarte() {
     }
 
@@ -104,4 +104,4 @@ public class ComparateurCarte {
             }
         }
     }
-}
+}*/
