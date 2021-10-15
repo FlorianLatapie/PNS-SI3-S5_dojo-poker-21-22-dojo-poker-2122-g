@@ -20,10 +20,9 @@ public class ComparateurMain {
             return compareCarre(main1, main2);
         } else if (fullMain1[0].getValeur() != 0 || fullMain2[0].getValeur() != 0) {
             return compareFull(main1, main2);
-        }/*
-        else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
+        } else if (main1.contientCouleur()!=null || main2.contientCouleur()!=null) {
             return compareCouleur(main1, main2);
-        }*/ else if (suiteMain1[0].getValeur() != 0 || suiteMain2[0].getValeur() != 0) {
+        } else if (suiteMain1[0].getValeur() != 0 || suiteMain2[0].getValeur() != 0) {
             return compareSuite(main1, main2);
         } else if (main1.contientBrelan() != 0 || main2.contientBrelan() != 0) {
             return compareBrelans(main1, main2);
@@ -222,6 +221,8 @@ public class ComparateurMain {
                         main1.supprimerCartes(fullMain2[i].getValeur(), 1);
                         main1.supprimerCartes(fullMain2[i].getValeur(), 1);
                     }
+                    System.out.println(main1.toString());
+                    System.out.println(main2.toString());
                     return compare(main1, main2);
                 }
             }
@@ -229,6 +230,18 @@ public class ComparateurMain {
             return new Gagnant(1, FULL, fullMain1);
         } else {
             return new Gagnant(2, FULL, fullMain2);
+        }
+    }
+
+    private Gagnant compareCouleur(Main main1, Main main2){
+        if(main1.contientCouleur()!=null && main2.contientCouleur()!=null){
+            return compareCarteLaPlusHaute(main1,main2);
+        }
+        else if(main1.contientCouleur()!=null && main2.contientCouleur()==null){
+            return new Gagnant(1, COULEUR, new Carte(2, main1.contientCouleur()));
+        }
+        else{
+            return new Gagnant(2, COULEUR, new Carte(2, main2.contientCouleur()));
         }
     }
 }

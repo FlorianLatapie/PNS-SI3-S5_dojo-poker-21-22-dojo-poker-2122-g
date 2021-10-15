@@ -39,6 +39,10 @@ public class Main {
         return this.cartes.get(i).getValeur();
     }
 
+    public String getCouleurMain(int i) {
+        return this.cartes.get(i).getCouleur();
+    }
+
     public List<Integer> valTri() {
         List<Integer> liste = new ArrayList<Integer>();
         for (int i = 0; i < this.getCartesSize(); i++) {
@@ -137,6 +141,25 @@ public class Main {
         }
     }
 
+    String contientCouleur() {
+        if (this.getCartesSize() != 0) {
+            String couleur = this.getCouleurMain(0);
+
+            if (!couleur.equals("Pas de couleur")) {
+                for (Carte el : this.getCartes()) {
+                    if (!el.getCouleur().equals(couleur)) {
+                        return null;
+                    }
+                }
+            } else {
+                return null;
+            }
+
+            return couleur;
+        } else {
+            return null;
+        }
+    }
 
     void supprimerCartes(int valeurCarte, int nbASuppr) {
         for (int j = 0; j < nbASuppr; j++) {
