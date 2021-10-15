@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntreeSortie {
-    private List<String> couleursPossibles = new ArrayList<>();
-    private List<String> valeursPossibles = new ArrayList<>();
+    private List<String> couleursPossibles;
+    private List<String> valeursPossibles;
+    private List<Carte> cartesPresentes;
 
     public EntreeSortie() {
+        couleursPossibles = new ArrayList<>();
+        valeursPossibles = new ArrayList<>();
+        cartesPresentes = new ArrayList<>();
         initListes();
     }
 
@@ -33,7 +37,6 @@ public class EntreeSortie {
 
     private List<Carte> tableauStringVersListCarte(String[] saisie) throws Exception {
         List<Carte> retour = new ArrayList<>();
-        List<Carte> cartePresente = new ArrayList<>();
 
         for (String carte : saisie) {
             String couleur;
@@ -46,9 +49,9 @@ public class EntreeSortie {
             }
             if (couleursPossibles.contains(couleur) && valeursPossibles.contains(valeur)) {
                 Carte carteAjouter = new Carte(valeur, couleur);
-                if(!cartePresente.contains(carteAjouter)){
+                if(!cartesPresentes.contains(carteAjouter)){
                     retour.add(carteAjouter);
-                    cartePresente.add(carteAjouter);
+                    cartesPresentes.add(carteAjouter);
                 } else {
                     throw new Exception("La carte " + valeur + couleur + " a dejà été saisie précedement");
                 }
@@ -57,15 +60,6 @@ public class EntreeSortie {
             }
         }
         return retour;
-    }
-
-    public boolean deuxMainsUniques(Main main1, Main main2){
-        for(Carte carte : main1.getCartes()){
-            if(main2.getCartes().contains(carte)){
-                return false;
-            }
-        }
-        return true;
     }
 
     public Main reccupereMain(String entree) throws Exception {
