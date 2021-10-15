@@ -13,13 +13,8 @@ public class MoteurJeu {
         System.out.print("Entrez main 2 : ");
         Main main2 = es.reccupereMain(scanner.nextLine());
 
-        if(es.deuxMainsUniques(main1, main2)){
-            Gagnant m = ComparateurMain.compare(main1, main2);
-            System.out.println(m.toString());
-        } else {
-            throw new Exception("Il y a deux cartes identiques dans les deux mains. Veuillez recommencer.");
-        }
+        Gagnant m = ComparateurMain.compare(main1, main2);
+        System.out.println(m.toString());
     }
-
-
+    
 }
