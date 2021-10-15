@@ -3,6 +3,7 @@ package com.dojopoker.main;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Gagnant {
     private int joueur;
     private int valeurRaisonVictoire;
@@ -38,7 +39,11 @@ public class Gagnant {
     public String toString() {
         if (this.joueur == 0) {
             return "Égalité";
-        } else {
+        } else if (this.victoire.equals(VictoiresPossibles.COULEUR)) {
+            return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagnantes.get(0).getCouleur();
+        } else if (this.victoire.equals(VictoiresPossibles.QUINTE_FLUSH)){
+            return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString() + cartesGagnantes.get(0).getCouleur();
+        } else{
             return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString();
         }
     }

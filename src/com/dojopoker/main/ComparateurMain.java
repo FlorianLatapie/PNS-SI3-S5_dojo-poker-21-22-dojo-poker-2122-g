@@ -21,10 +21,9 @@ public class ComparateurMain {
             return compareCarre(main1, main2);
         } else if (fullMain1[0].getValeur() != 0 || fullMain2[0].getValeur() != 0) {
             return compareFull(main1, main2);
-        }/*
-        else if (cartes.contientCouleur(main1) != 0 || cartes.contientCouleur(main2) != 0) {
+        } else if (cartes.contientCouleur(main1)!=null || cartes.contientCouleur(main2)!=null) {
             return compareCouleur(main1, main2);
-        }*/ else if (suiteMain1[0].getValeur() != 0 || suiteMain2[0].getValeur() != 0) {
+        } else if (suiteMain1[0].getValeur() != 0 || suiteMain2[0].getValeur() != 0) {
             return compareSuite(main1, main2);
         } else if (cartes.contientBrelan(main1) != 0 || cartes.contientBrelan(main2) != 0) {
             return compareBrelans(main1, main2);
@@ -223,6 +222,8 @@ public class ComparateurMain {
                         ComparateurCarte.supprimerCartes(main1, fullMain2[i].getValeur(), 1);
                         ComparateurCarte.supprimerCartes(main1, fullMain2[i].getValeur(), 1);
                     }
+                    System.out.println(main1.toString());
+                    System.out.println(main2.toString());
                     return ComparateurMain.compare(main1, main2);
                 }
             }
@@ -230,6 +231,18 @@ public class ComparateurMain {
             return new Gagnant(1, FULL, fullMain1);
         } else {
             return new Gagnant(2, FULL, fullMain2);
+        }
+    }
+
+    private static Gagnant compareCouleur(Main main1, Main main2){
+        if(cartes.contientCouleur(main1)!=null && cartes.contientCouleur(main2)!=null){
+            return compareCarteLaPlusHaute(main1,main2);
+        }
+        else if(cartes.contientCouleur(main1)!=null && cartes.contientCouleur(main2)==null){
+            return new Gagnant(1, COULEUR, new Carte(2, cartes.contientCouleur(main1)));
+        }
+        else{
+            return new Gagnant(2, COULEUR, new Carte(2, cartes.contientCouleur(main2)));
         }
     }
 }

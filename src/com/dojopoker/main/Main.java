@@ -41,6 +41,10 @@ public class Main {
         return this.cartes.get(i).getValeur();
     }
 
+    public String getCouleurMain(int i){
+        return this.cartes.get(i).getCouleur();
+    }
+
     public List<Integer> valTri() {
         List<Integer> liste = new ArrayList<Integer>();
         for(int i = 0; i < this.getCartesSize(); i++) {

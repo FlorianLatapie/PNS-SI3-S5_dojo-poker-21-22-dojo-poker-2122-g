@@ -93,6 +93,27 @@ public class ComparateurCarte {
         }
     }
 
+    static String contientCouleur(Main main){
+        if(main.getCartesSize()!=0) {
+            String couleur = main.getCouleurMain(0);
+
+            if (!couleur.equals("Pas de couleur")) {
+                for (Carte el : main.getCartes()) {
+                    if (!el.getCouleur().equals(couleur)) {
+                        return null;
+                    }
+                }
+            } else {
+                return null;
+            }
+
+            return couleur;
+        }
+        else{
+            return null;
+        }
+    }
+
 
     static void supprimerCartes(Main main, int valeurCarte, int nbASuppr) {
         for (int j = 0; j < nbASuppr; j++) {
