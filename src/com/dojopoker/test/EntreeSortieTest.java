@@ -42,4 +42,18 @@ public class EntreeSortieTest {
         EntreeSortie es = new EntreeSortie();
         es.reccupereMain("1");
     }
+
+    @Test (expected = Exception.class)
+    public void exceptionSeparationReccupereMainTest() throws Exception {
+        EntreeSortie es = new EntreeSortie();
+        es.reccupereMain("1P 9Ca 8Co VPi 6Co");
+    }
+
+    @Test (expected = Exception.class)
+    public void exceptionCarteHorsLimiteReccupereMainTest() throws Exception {
+        EntreeSortie es = new EntreeSortie();
+        es.reccupereMain("19Pi 9Ca 8Co VPi 6Co");
+
+        es.reccupereMain("1Pi 9Ca 8Co VPi 6Co");
+    }
 }

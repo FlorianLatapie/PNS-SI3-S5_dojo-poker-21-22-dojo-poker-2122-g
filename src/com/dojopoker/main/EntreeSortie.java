@@ -41,11 +41,11 @@ public class EntreeSortie {
         for (String carte : saisie) {
             String couleur;
             String valeur;
-            try {
+            if (carte.length() == 4 || carte.length() == 3) {
                 couleur = carte.substring(carte.length() - 2);
                 valeur = carte.substring(0, carte.length() - 2);
-            } catch (Exception e) {
-                throw new Exception("Impossible de séparer la valeur de la couleur.");
+            } else {
+                throw new Exception("Impossible de séparer la valeur de la couleur pour "+carte);
             }
             if (couleursPossibles.contains(couleur) && valeursPossibles.contains(valeur)) {
                 Carte carteAjouter = new Carte(valeur, couleur);
