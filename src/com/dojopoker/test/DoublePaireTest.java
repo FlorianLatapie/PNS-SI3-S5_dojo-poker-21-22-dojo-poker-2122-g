@@ -111,10 +111,10 @@ public class DoublePaireTest {
         @Test
         public void doublePaireVsDoublePaireTest() {
         List<Carte> listeMain5 = new ArrayList<>();
-        listeMain5.add(new Carte(5));
-        listeMain5.add(new Carte(5));
         listeMain5.add(new Carte(1));
         listeMain5.add(new Carte(1));
+        listeMain5.add(new Carte(5));
+        listeMain5.add(new Carte(5));
         listeMain5.add(new Carte(4));
 
         Main main5 = new Main(listeMain5);

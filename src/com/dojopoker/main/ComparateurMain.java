@@ -20,7 +20,7 @@ public class ComparateurMain {
             return compareCarre(main1, main2);
         } else if (fullMain1[0].getValeur() != 0 || fullMain2[0].getValeur() != 0) {
             return compareFull(main1, main2);
-        } else if (main1.contientCouleur()!=null || main2.contientCouleur()!=null) {
+        } else if (main1.contientCouleur() != null || main2.contientCouleur() != null) {
             return compareCouleur(main1, main2);
         } else if (suiteMain1[0].getValeur() != 0 || suiteMain2[0].getValeur() != 0) {
             return compareSuite(main1, main2);
@@ -129,7 +129,6 @@ public class ComparateurMain {
     private Gagnant compareDoublePaires(Main main1, Main main2) {
         int[] paireMain1 = main1.contientDoublePaires();
         int[] paireMain2 = main2.contientDoublePaires();
-
         if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] != 0 && paireMain2[1] != 0) {
             if (paireMain1[0] > paireMain2[0]) {
                 return new Gagnant(1, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain1[0]), new Carte(paireMain1[1])});
@@ -141,26 +140,11 @@ public class ComparateurMain {
                 } else if (paireMain1[1] < paireMain2[1]) {
                     return new Gagnant(2, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain2[0]), new Carte(paireMain2[1])});
                 } else {
-                    if (paireMain1[2] > paireMain2[2]) {
-                        return new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(paireMain1[2])});
-                    } else if (paireMain1[2] < paireMain2[2]) {
-                        return new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(paireMain2[2])});
-                    } else {
-                        //return new Gagnant(0, egalite);
-                        for (int i = 0; i < paireMain1.length; i++) {
-                            if (i <= 1) {
-                                main1.supprimerCartes(paireMain1[i], 1);
-                            }
-                            main1.supprimerCartes(paireMain1[i], 1);
-                        }
-                        for (int i = 0; i < paireMain2.length; i++) {
-                            if (i <= 1) {
-                                main1.supprimerCartes(paireMain2[i], 1);
-                            }
-                            main1.supprimerCartes(paireMain2[i], 1);
-                        }
-                        return compare(main1, main2);
-                    }
+                    main1.supprimerCartes(paireMain1[0],2);
+                    main1.supprimerCartes(paireMain1[1],2);
+                    main2.supprimerCartes(paireMain2[0],2);
+                    main2.supprimerCartes(paireMain2[1],2);
+                    return compare(main1, main2);
                 }
             }
         } else if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] == 0 && paireMain2[1] == 0) {
@@ -233,14 +217,12 @@ public class ComparateurMain {
         }
     }
 
-    private Gagnant compareCouleur(Main main1, Main main2){
-        if(main1.contientCouleur()!=null && main2.contientCouleur()!=null){
-            return compareCarteLaPlusHaute(main1,main2);
-        }
-        else if(main1.contientCouleur()!=null && main2.contientCouleur()==null){
+    private Gagnant compareCouleur(Main main1, Main main2) {
+        if (main1.contientCouleur() != null && main2.contientCouleur() != null) {
+            return compareCarteLaPlusHaute(main1, main2);
+        } else if (main1.contientCouleur() != null && main2.contientCouleur() == null) {
             return new Gagnant(1, COULEUR, new Carte(2, main1.contientCouleur()));
-        }
-        else{
+        } else {
             return new Gagnant(2, COULEUR, new Carte(2, main2.contientCouleur()));
         }
     }

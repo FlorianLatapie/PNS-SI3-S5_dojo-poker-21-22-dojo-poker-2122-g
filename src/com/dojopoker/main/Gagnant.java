@@ -3,15 +3,10 @@ package com.dojopoker.main;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Gagnant {
     private int joueur;
-    private int valeurRaisonVictoire;
-    private String raisonVictoire;
     private List<Carte> cartesGagnantes;
     private VictoiresPossibles victoire;
-
-
 
     public Gagnant(int joueur, VictoiresPossibles victoire, Carte... cartesGagnantes) {
         this.joueur = joueur;

@@ -52,12 +52,37 @@ public class Main {
         return liste;
     }
 
+    int contientPlusieurs(int occurencesATrouver) {
+        Map<Integer, Integer> carteOccurences = new HashMap<>();
+
+        for (int i = 0; i < this.getCartesSize(); i++) {
+            if (carteOccurences.containsKey(this.getVal(i))) {
+                // la carte existe, occurence ++
+                carteOccurences.replace(this.getVal(i), carteOccurences.get(this.getVal(i)) + 1);
+            } else {
+                // la carte n'est pas encore repertoriée, occurence = 1
+                carteOccurences.put(this.getVal(i), 1);
+            }
+        }
+
+        for (Integer i : carteOccurences.keySet()) {
+            if (carteOccurences.get(i) == occurencesATrouver) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     int contientPaire() {
         return contientPlusieurs(2);
     }
 
     int contientBrelan() {
         return contientPlusieurs(3);
+    }
+
+    int contientCarre() {
+        return contientPlusieurs(4);
     }
 
     Carte[] contientSuite() {
@@ -83,55 +108,24 @@ public class Main {
     }
 
     int[] contientDoublePaires() {
-
-        int paire1, paire2, carteRestante;
-        paire1 = contientPaire();
-
+        List<Carte> cartesTmp = new ArrayList<>();
         for (int i = 0; i < this.getCartesSize(); i++) {
-            for (int j = 0; j < this.getCartesSize(); j++) {
-                if (i != j && this.getVal(i) == this.getVal(j) && this.getVal(j) != paire1) {
+            cartesTmp.add(this.getCartes().get(i));
+        }
+        Main mainTmp = new Main(cartesTmp);
 
-                    paire2 = this.getVal(j);
+        int paire1 = mainTmp.contientPaire();
+        mainTmp.supprimerCartes(paire1, 2);
+        int paire2 = mainTmp.contientPaire();
+        mainTmp.supprimerCartes(paire2, 2);
 
-                    for (int k = 0; k < this.getCartesSize(); k++) {
-                        if (this.getVal(k) != paire1 && this.getVal(k) != paire2) {
-
-                            carteRestante = this.getVal(k);
-
-                            return new int[]{paire2, paire1, carteRestante};
-                        }
-                    }
-                }
-            }
+        if (paire1 != 0 && paire2 != 0) {
+                return new int[]{paire2, paire1};
         }
 
-        return new int[]{0, 0, 0};
+        return new int[]{0, 0};
     }
 
-    int contientCarre() {
-        return contientPlusieurs(4);
-    }
-
-    int contientPlusieurs(int occurencesATrouver) {
-        Map<Integer, Integer> carteOccurences = new HashMap<>();
-
-        for (int i = 0; i < this.getCartesSize(); i++) {
-            if (carteOccurences.containsKey(this.getVal(i))) {
-                // la carte existe, occurence ++
-                carteOccurences.replace(this.getVal(i), carteOccurences.get(this.getVal(i)) + 1);
-            } else {
-                // la carte n'est pas encore repertoriée, occurence = 1
-                carteOccurences.put(this.getVal(i), 1);
-            }
-        }
-
-        for (Integer i : carteOccurences.keySet()) {
-            if (carteOccurences.get(i) == occurencesATrouver) {
-                return i;
-            }
-        }
-        return 0;
-    }
 
     Carte[] contientFull() {
         if ((contientBrelan() != 0 && contientPaire() != 0)) {
