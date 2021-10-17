@@ -1,6 +1,9 @@
 package com.dojopoker.test;
 
-import com.dojopoker.main.*;
+import com.dojopoker.main.Carte;
+import com.dojopoker.main.ComparateurMain;
+import com.dojopoker.main.Gagnant;
+import com.dojopoker.main.Main;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,8 +36,8 @@ public class CarreTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(1)} ), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(1)} ), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[]{new Carte(1)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[]{new Carte(1)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -57,8 +60,8 @@ public class CarreTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(2)} ), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(2)} ), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[]{new Carte(2)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[]{new Carte(2)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -129,8 +132,8 @@ public class CarreTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[] {new Carte(5)} ), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[] {new Carte(5)} ), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte[]{new Carte(5)}), cm.compare(main2, main1));
 
     }
 
@@ -155,8 +158,8 @@ public class CarreTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(3)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(3)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[]{new Carte(3)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[]{new Carte(3)}), cm.compare(main2, main1));
 
         List<Carte> listeMain9 = new ArrayList<>();
         listeMain9.add(new Carte(1));
@@ -176,8 +179,8 @@ public class CarreTest {
 
         Main main10 = new Main(listeMain10);
 
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(10)}), cm.compare(main9, main10));
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(10)}), cm.compare(main10, main9));
-        Assert.assertEquals(new Gagnant(0, EGALITE,null), cm.compare(main10,main10));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[]{new Carte(10)}), cm.compare(main9, main10));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[]{new Carte(10)}), cm.compare(main10, main9));
+        Assert.assertEquals(new Gagnant(0, EGALITE, null), cm.compare(main10, main10));
     }
 }

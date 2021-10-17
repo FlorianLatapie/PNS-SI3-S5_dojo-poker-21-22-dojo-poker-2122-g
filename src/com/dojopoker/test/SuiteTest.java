@@ -1,6 +1,9 @@
 package com.dojopoker.test;
 
-import com.dojopoker.main.*;
+import com.dojopoker.main.Carte;
+import com.dojopoker.main.ComparateurMain;
+import com.dojopoker.main.Gagnant;
+import com.dojopoker.main.Main;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -56,8 +59,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[]{new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[]{new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main2, main1));
 
     }
 
@@ -81,8 +84,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
 
     }
 
@@ -106,8 +109,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -130,8 +133,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -154,8 +157,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[]{new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)}), cm.compare(main2, main1));
     }
 
     @Test
@@ -178,8 +181,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[] {new Carte(6)}), cm.compare(main2, main1));
-        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[] {new Carte(6)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, CARRE, new Carte[]{new Carte(6)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, CARRE, new Carte[]{new Carte(6)}), cm.compare(main1, main2));
 
     }
 
@@ -203,8 +206,8 @@ public class SuiteTest {
 
         Main main2 = new Main(listeMain2);
 
-        Assert.assertEquals(new Gagnant(2, FULL, new Carte[] {new Carte(2), new Carte(3)}), cm.compare(main1, main2));
-        Assert.assertEquals(new Gagnant(1, FULL, new Carte[] {new Carte(2), new Carte(3)}), cm.compare(main2, main1));
+        Assert.assertEquals(new Gagnant(2, FULL, new Carte[]{new Carte(2), new Carte(3)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, FULL, new Carte[]{new Carte(2), new Carte(3)}), cm.compare(main2, main1));
 
     }
 

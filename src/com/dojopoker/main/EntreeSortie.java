@@ -45,11 +45,11 @@ public class EntreeSortie {
                 couleur = carte.substring(carte.length() - 2);
                 valeur = carte.substring(0, carte.length() - 2);
             } else {
-                throw new Exception("Impossible de séparer la valeur de la couleur pour "+carte);
+                throw new Exception("Impossible de séparer la valeur de la couleur pour " + carte);
             }
             if (couleursPossibles.contains(couleur) && valeursPossibles.contains(valeur)) {
                 Carte carteAjouter = new Carte(valeur, couleur);
-                if(!cartesPresentes.contains(carteAjouter)){
+                if (!cartesPresentes.contains(carteAjouter)) {
                     retour.add(carteAjouter);
                     cartesPresentes.add(carteAjouter);
                 } else {

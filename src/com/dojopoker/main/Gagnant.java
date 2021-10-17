@@ -23,7 +23,7 @@ public class Gagnant {
         StringBuilder retour = new StringBuilder();
         int i;
         if (!cartesGagnantes.isEmpty()) {
-            for (i = 0; i < cartesGagnantes.size() ; i++) {
+            for (i = 0; i < cartesGagnantes.size(); i++) {
                 retour.append(cartesGagnantes.get(i) + " ");
             }
         }
@@ -36,9 +36,9 @@ public class Gagnant {
             return "Égalité";
         } else if (this.victoire.equals(VictoiresPossibles.COULEUR)) {
             return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagnantes.get(0).getCouleur();
-        } else if (this.victoire.equals(VictoiresPossibles.QUINTE_FLUSH)){
+        } else if (this.victoire.equals(VictoiresPossibles.QUINTE_FLUSH)) {
             return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString() + cartesGagnantes.get(0).getCouleur();
-        } else{
+        } else {
             return "La main " + joueur + " gagne avec " + victoire.getValToString() + " : " + cartesGagantsToString();
         }
     }

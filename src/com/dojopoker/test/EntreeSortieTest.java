@@ -1,6 +1,8 @@
 package com.dojopoker.test;
 
-import com.dojopoker.main.*;
+import com.dojopoker.main.Carte;
+import com.dojopoker.main.EntreeSortie;
+import com.dojopoker.main.Main;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -43,20 +45,20 @@ public class EntreeSortieTest {
         es.reccupereMain("1");
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void exceptionSeparationReccupereMainTest() throws Exception {
         EntreeSortie es = new EntreeSortie();
         es.reccupereMain("1P 9Ca 8Co VPi 6Co");
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void exceptionCarteHorsLimiteReccupereMainTest() throws Exception {
         EntreeSortie es = new EntreeSortie();
         es.reccupereMain("19Pi 9Ca 8Co VPi 6Co");
 
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void exceptionCarteHorsLimiteReccupereMainTest2() throws Exception {
         EntreeSortie es = new EntreeSortie();
         es.reccupereMain("1Pi 9Ca 8Co VPi 6Co");

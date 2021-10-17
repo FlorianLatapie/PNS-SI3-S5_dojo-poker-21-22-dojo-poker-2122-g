@@ -17,5 +17,5 @@ public class MoteurJeu {
         Gagnant m = cm.compare(main1, main2);
         System.out.println(m.toString());
     }
-    
+
 }

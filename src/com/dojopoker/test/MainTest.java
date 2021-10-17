@@ -11,7 +11,7 @@ import java.util.List;
 public class MainTest {
 
     @Test
-    public void toStringTest(){
+    public void toStringTest() {
         List<Carte> cartes = new ArrayList<>();
         cartes.add(new Carte(2));
         Main m = new Main(cartes);
@@ -23,7 +23,7 @@ public class MainTest {
     }
 
     @Test
-    public void equalsTest(){
+    public void equalsTest() {
         List<Carte> cm1 = new ArrayList<>();
         cm1.add(new Carte(1));
 
