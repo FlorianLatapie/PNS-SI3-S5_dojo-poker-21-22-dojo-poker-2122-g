@@ -14,6 +14,54 @@ public class SuiteTest {
     private ComparateurMain cm = new ComparateurMain();
 
     @Test
+    public void suiteEgaliteTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1));
+        listeMain1.add(new Carte(2));
+        listeMain1.add(new Carte(3));
+        listeMain1.add(new Carte(4));
+        listeMain1.add(new Carte(5));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(1));
+        listeMain2.add(new Carte(4));
+        listeMain2.add(new Carte(3));
+        listeMain2.add(new Carte(2));
+        listeMain2.add(new Carte(5));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(0, EGALITE), cm.compare(main1, main2));
+    }
+
+    @Test
+    public void suiteVsSuiteTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1));
+        listeMain1.add(new Carte(2));
+        listeMain1.add(new Carte(3));
+        listeMain1.add(new Carte(4));
+        listeMain1.add(new Carte(5));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(6));
+        listeMain2.add(new Carte(5));
+        listeMain2.add(new Carte(4));
+        listeMain2.add(new Carte(3));
+        listeMain2.add(new Carte(2));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(2, SUITE, new Carte[] {new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(1, SUITE, new Carte[] {new Carte(2), new Carte(3), new Carte(4), new Carte(5), new Carte(6)}), cm.compare(main2, main1));
+
+    }
+
+    @Test
     public void suiteVsCarteHauteTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(1));
