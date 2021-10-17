@@ -140,10 +140,10 @@ public class ComparateurMain {
                 } else if (paireMain1[1] < paireMain2[1]) {
                     return new Gagnant(2, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain2[0]), new Carte(paireMain2[1])});
                 } else {
-                    main1.supprimerCartes(paireMain1[0],2);
-                    main1.supprimerCartes(paireMain1[1],2);
-                    main2.supprimerCartes(paireMain2[0],2);
-                    main2.supprimerCartes(paireMain2[1],2);
+                    main1.supprimerCartes(paireMain1[0], 2);
+                    main1.supprimerCartes(paireMain1[1], 2);
+                    main2.supprimerCartes(paireMain2[0], 2);
+                    main2.supprimerCartes(paireMain2[1], 2);
                     return compare(main1, main2);
                 }
             }

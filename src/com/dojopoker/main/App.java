@@ -9,9 +9,9 @@ public class App {
             mj.lancerJeu();
 
             main(args);// on relance automatiquement le jeu à la fin
-        }catch (Exception e){
+        } catch (Exception e) {
             if (e instanceof NoSuchElementException) return; // pour les erreurs de fin de fichier en test unitaire
-            System.out.println("Une erreur s'est produite, veuillez recommencer\n"+e.getMessage());
+            System.out.println("Une erreur s'est produite, veuillez recommencer\n" + e.getMessage());
             main(args);
         }
     }

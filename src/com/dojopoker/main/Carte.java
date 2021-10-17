@@ -6,9 +6,9 @@ public class Carte {
     private String couleur;
     private boolean possedeCouleur;
 
-    public Carte(int valeur , String couleur){
-        this.valeurAff = valeur+"";
-        switch (valeur){
+    public Carte(int valeur, String couleur) {
+        this.valeurAff = valeur + "";
+        switch (valeur) {
             case 11:
                 this.valeurAff = "V";
                 break;
@@ -28,9 +28,9 @@ public class Carte {
         this.possedeCouleur = true;
     }
 
-    public Carte(String valeur, String couleur){
+    public Carte(String valeur, String couleur) {
         this.valeurAff = valeur;
-        switch (valeur){
+        switch (valeur) {
             case "V":
                 this.valeur = 11;
                 break;
@@ -50,9 +50,9 @@ public class Carte {
         this.possedeCouleur = true;
     }
 
-    public Carte(int valeur){
-        this.valeurAff = valeur+"";
-        switch (valeur){
+    public Carte(int valeur) {
+        this.valeurAff = valeur + "";
+        switch (valeur) {
             case 11:
                 this.valeurAff = "V";
                 break;
@@ -81,9 +81,9 @@ public class Carte {
     }
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (obj instanceof Carte) {
-            Carte carteAComparer = (Carte)obj;
+            Carte carteAComparer = (Carte) obj;
             return this.valeur == carteAComparer.valeur && this.couleur.equals(carteAComparer.couleur);
         }
         return false;
@@ -91,8 +91,8 @@ public class Carte {
 
     @Override
     public String toString() {
-        if(possedeCouleur){
-            return  valeurAff + "" + couleur;
+        if (possedeCouleur) {
+            return valeurAff + "" + couleur;
         } else {
             return valeurAff;
         }
