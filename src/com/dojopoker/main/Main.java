@@ -52,6 +52,15 @@ public class Main {
         return liste;
     }
 
+    @Override
+    public Main clone() {
+        List<Carte> cartesTmp = new ArrayList<>();
+        for (int i = 0; i < this.getCartesSize(); i++) {
+            cartesTmp.add(this.getCartes().get(i));
+        }
+        return new Main(cartesTmp);
+    }
+
     int contientPlusieurs(int occurencesATrouver) {
         Map<Integer, Integer> carteOccurences = new HashMap<>();
 
@@ -108,11 +117,7 @@ public class Main {
     }
 
     int[] contientDoublePaires() {
-        List<Carte> cartesTmp = new ArrayList<>();
-        for (int i = 0; i < this.getCartesSize(); i++) {
-            cartesTmp.add(this.getCartes().get(i));
-        }
-        Main mainTmp = new Main(cartesTmp);
+        Main mainTmp = this.clone();
 
         int paire1 = mainTmp.contientPaire();
         mainTmp.supprimerCartes(paire1, 2);
@@ -120,12 +125,11 @@ public class Main {
         mainTmp.supprimerCartes(paire2, 2);
 
         if (paire1 != 0 && paire2 != 0) {
-                return new int[]{paire2, paire1};
+            return new int[]{paire2, paire1};
+        } else {
+            return new int[]{0, 0};
         }
-
-        return new int[]{0, 0};
     }
-
 
     Carte[] contientFull() {
         if ((contientBrelan() != 0 && contientPaire() != 0)) {
@@ -140,15 +144,14 @@ public class Main {
             String couleur = this.getCouleurMain(0);
 
             if (!couleur.equals("Pas de couleur")) {
-                for (Carte el : this.getCartes()) {
-                    if (!el.getCouleur().equals(couleur)) {
+                for (Carte carte : this.getCartes()) {
+                    if (!carte.getCouleur().equals(couleur)) {
                         return null;
                     }
                 }
             } else {
                 return null;
             }
-
             return couleur;
         } else {
             return null;
