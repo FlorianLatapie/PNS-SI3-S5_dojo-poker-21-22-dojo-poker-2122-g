@@ -12,8 +12,8 @@ public class ComparateurMain {
         Carte[] suiteMain1 = main1.contientSuite();
         Carte[] suiteMain2 = main2.contientSuite();
 
-        /*if (cartes.contientQinteFlush(main1) != 0 || cartes.contientQinteFlush(main2) != 0) {
-            return compareQinteFlush(main1, main2);
+        /*if (main1.contientQuinteFlush().length == 5 || main2.contientQuinteFlush().length == 5) {
+            return compareQuinteFlush(main1, main2);
         }
         else */
         if (main1.contientCarre() != 0 || main2.contientCarre() != 0) {
@@ -190,23 +190,10 @@ public class ComparateurMain {
                     return new Gagnant(2, FULL, fullMain2);
                 } else {
                     //ATTENTION! CAS D'EGALITE NORMALEMENT IMPOSSIBLE
-                    //return new Gagnant(0, egalite);
-                    for (int i = 0; i < fullMain1.length; i++) {
-                        if (i <= 1) {
-                            main1.supprimerCartes(fullMain1[i].getValeur(), 1);
-                        }
-                        main1.supprimerCartes(fullMain1[i].getValeur(), 1);
-                        main1.supprimerCartes(fullMain1[i].getValeur(), 1);
-                    }
-                    for (int i = 0; i < fullMain2.length; i++) {
-                        if (i <= 1) {
-                            main1.supprimerCartes(fullMain2[i].getValeur(), 1);
-                        }
-                        main1.supprimerCartes(fullMain2[i].getValeur(), 1);
-                        main1.supprimerCartes(fullMain2[i].getValeur(), 1);
-                    }
-                    System.out.println(main1.toString());
-                    System.out.println(main2.toString());
+                    main1.supprimerCartes(fullMain1[0].getValeur(), 3);
+                    main1.supprimerCartes(fullMain1[1].getValeur(), 2);
+                    main2.supprimerCartes(fullMain2[0].getValeur(), 3);
+                    main2.supprimerCartes(fullMain2[1].getValeur(), 2);
                     return compare(main1, main2);
                 }
             }
