@@ -21,6 +21,5 @@ public class AppTest {
         final FileInputStream fips = new FileInputStream(new File("src/com/dojopoker/test/input2.txt"));
         System.setIn(fips);
         App.main(null);
-
     }
 }

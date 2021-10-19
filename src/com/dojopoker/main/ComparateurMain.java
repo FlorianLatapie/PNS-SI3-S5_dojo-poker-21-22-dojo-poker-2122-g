@@ -14,8 +14,7 @@ public class ComparateurMain {
 
         if (main1.contientQuinteFlush().length == 5 || main2.contientQuinteFlush().length == 5) {
             return compareQuinteFlush(main1, main2);
-        }
-        else if (main1.contientCarre() != 0 || main2.contientCarre() != 0) {
+        } else if (main1.contientCarre() != 0 || main2.contientCarre() != 0) {
             return compareCarre(main1, main2);
         } else if (fullMain1[0].getValeur() != 0 || fullMain2[0].getValeur() != 0) {
             return compareFull(main1, main2);
@@ -38,12 +37,12 @@ public class ComparateurMain {
         int lePlusHautM1 = -1;
         int lePlusHautM2 = -1;
         for (int i = 0; i < main1.getCartesSize(); i++) {
-            if (main1.getCartes().get(i).getValeur() > lePlusHautM1){
+            if (main1.getCartes().get(i).getValeur() > lePlusHautM1) {
                 lePlusHautM1 = main1.getCartes().get(i).getValeur();
             }
         }
         for (int i = 0; i < main2.getCartesSize(); i++) {
-            if (main2.getCartes().get(i).getValeur() > lePlusHautM2){
+            if (main2.getCartes().get(i).getValeur() > lePlusHautM2) {
                 lePlusHautM2 = main2.getCartes().get(i).getValeur();
             }
         }
@@ -125,7 +124,7 @@ public class ComparateurMain {
         Carte[] quinteFlushMain2 = main2.contientQuinteFlush();
 
         if (quinteFlushMain1[0].getValeur() != 0 && quinteFlushMain2[0].getValeur() != 0
-            && main1.contientCouleur() != null && main2.contientCouleur() != null) {
+                && main1.contientCouleur() != null && main2.contientCouleur() != null) {
 
             if (quinteFlushMain1[4].getValeur() > quinteFlushMain2[4].getValeur()) {
                 return new Gagnant(1, QUINTE_FLUSH, quinteFlushMain1);

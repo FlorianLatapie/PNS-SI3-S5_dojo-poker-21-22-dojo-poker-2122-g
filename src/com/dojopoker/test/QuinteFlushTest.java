@@ -10,7 +10,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.dojopoker.main.VictoiresPossibles.*;
+import static com.dojopoker.main.VictoiresPossibles.EGALITE;
+import static com.dojopoker.main.VictoiresPossibles.QUINTE_FLUSH;
 
 public class QuinteFlushTest {
 

@@ -119,9 +119,9 @@ public class Main {
     Carte[] contientQuinteFlush() {
         Carte[] suite = contientSuite();
         String couleur = contientCouleur();
-        if (contientSuite().length == 5 && contientCouleur() != null){
+        if (contientSuite().length == 5 && contientCouleur() != null) {
             Carte[] listeRetour = new Carte[5];
-            for (int i = 0; i < 5; i ++) {
+            for (int i = 0; i < 5; i++) {
                 listeRetour[i] = new Carte(suite[i].getValeur(), couleur);
             }
             return listeRetour;
