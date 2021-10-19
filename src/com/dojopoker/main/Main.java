@@ -116,6 +116,15 @@ public class Main {
 
     }
 
+    Carte[] contientQuinteFlush() {
+        Carte[] carte = new Carte[0];
+        if(contientSuite() != carte && contientCouleur() != null) {
+            return contientSuite();
+        } else {
+            return null;
+        }
+    }
+
     int[] contientDoublePaires() {
         Main mainTmp = this.clone();
 
