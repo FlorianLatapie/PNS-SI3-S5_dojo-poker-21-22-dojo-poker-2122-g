@@ -73,6 +73,27 @@ public class PlusHauteCarteTest {
 
         Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte(10)), cm.compare(main2, main1));
         Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte(10)), cm.compare(main1, main2));
+
+        List<Carte> listeMain3 = new ArrayList<>();
+        listeMain3.add(new Carte(10, "Tr"));
+        listeMain3.add(new Carte(9, "Tr"));
+        listeMain3.add(new Carte(8, "Ca"));
+        listeMain3.add(new Carte(4, "Tr"));
+        listeMain3.add(new Carte(2, "Tr"));
+
+        Main main3 = new Main(listeMain3);
+
+        List<Carte> listeMain4 = new ArrayList<>();
+        listeMain4.add(new Carte("A", "Ca"));
+        listeMain4.add(new Carte(2, "Ca"));
+        listeMain4.add(new Carte(3, "Ca"));
+        listeMain4.add(new Carte(4, "Ca"));
+        listeMain4.add(new Carte(5, "Tr"));
+
+        Main main4 = new Main(listeMain4);
+
+        Assert.assertEquals(new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte(14)), cm.compare(main3, main4));
+        Assert.assertEquals(new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte(14)), cm.compare(main4, main3));
     }
 
     @Test

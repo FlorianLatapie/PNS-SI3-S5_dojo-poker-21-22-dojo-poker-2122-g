@@ -36,29 +36,24 @@ public class ComparateurMain {
     }
 
     private Gagnant compareCarteLaPlusHaute(Main main1, Main main2) {
-        int resMain1 = 0, resMain2 = 0;
-        Carte lePlusHaut = new Carte(-1);
-
+        int lePlusHautM1 = -1;
+        int lePlusHautM2 = -1;
         for (int i = 0; i < main1.getCartesSize(); i++) {
-            if (main1.getVal(i) > main2.getVal(i)) {
-                resMain1++;
-                if (main1.getVal(i) > lePlusHaut.getValeur()) {
-                    lePlusHaut = main1.getCartes().get(i);
-                }
-            } else if (main1.getVal(i) < main2.getVal(i)) {
-                resMain2++;
-                if (main2.getVal(i) > lePlusHaut.getValeur()) {
-                    lePlusHaut = main2.getCartes().get(i);
-                }
+            if (main1.getCartes().get(i).getValeur() > lePlusHautM1){
+                lePlusHautM1 = main1.getCartes().get(i).getValeur();
             }
         }
-
-        if (resMain1 == resMain2) {
-            return new Gagnant(0, EGALITE);
-        } else if (resMain1 > resMain2) {
-            return new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte(lePlusHaut.getValeur()));
+        for (int i = 0; i < main2.getCartesSize(); i++) {
+            if (main2.getCartes().get(i).getValeur() > lePlusHautM2){
+                lePlusHautM2 = main2.getCartes().get(i).getValeur();
+            }
+        }
+        if (lePlusHautM1 == lePlusHautM2) {
+            return new Gagnant(0, EGALITE, null);
+        } else if (lePlusHautM1 > lePlusHautM2) {
+            return new Gagnant(1, CARTE_LA_PLUS_HAUTE, new Carte(lePlusHautM1));
         } else {
-            return new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte(lePlusHaut.getValeur()));
+            return new Gagnant(2, CARTE_LA_PLUS_HAUTE, new Carte(lePlusHautM2));
         }
     }
 
