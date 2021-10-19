@@ -12,7 +12,7 @@ public class ComparateurMain {
         Carte[] suiteMain1 = main1.contientSuite();
         Carte[] suiteMain2 = main2.contientSuite();
 
-        if (main1.contientQuinteFlush() != null || main2.contientQuinteFlush() != null) {
+        if (main1.contientQuinteFlush().length == 5 || main2.contientQuinteFlush().length == 5) {
             return compareQuinteFlush(main1, main2);
         }
         else if (main1.contientCarre() != 0 || main2.contientCarre() != 0) {
@@ -123,14 +123,27 @@ public class ComparateurMain {
     private Gagnant compareQuinteFlush(Main main1, Main main2) {
         Carte[] quinteFlushMain1 = main1.contientQuinteFlush();
         Carte[] quinteFlushMain2 = main2.contientQuinteFlush();
-        if(main1.contientQuinteFlush()!=null && main2.contientQuinteFlush()!=null) {
-            return compareSuite(main1, main2);
-        } else if (main1.contientQuinteFlush() != null) {
-            return new Gagnant(1, QUINTE_FLUSH, quinteFlushMain1);
-        } else {
-            return new Gagnant(2, QUINTE_FLUSH, quinteFlushMain2);
-        }
 
+        if (quinteFlushMain1[0].getValeur() != 0 && quinteFlushMain2[0].getValeur() != 0
+            && main1.contientCouleur() != null && main2.contientCouleur() != null) {
+
+            if (quinteFlushMain1[4].getValeur() > quinteFlushMain2[4].getValeur()) {
+                return new Gagnant(1, QUINTE_FLUSH, quinteFlushMain1);
+            } else if (quinteFlushMain1[4].getValeur() < quinteFlushMain2[4].getValeur()) {
+                return new Gagnant(2, QUINTE_FLUSH, quinteFlushMain2);
+            } else {
+                for (int i = 0; i < quinteFlushMain1.length; i++) {
+                    main1.supprimerCartes(quinteFlushMain1[i].getValeur(), 1);
+                }
+                for (int i = 0; i < quinteFlushMain2.length; i++) {
+                    main2.supprimerCartes(quinteFlushMain1[i].getValeur(), 1);
+                }
+                return compare(main1, main2);
+            }
+        } else if (quinteFlushMain1[0].getValeur() != 0) {
+            return new Gagnant(1, QUINTE_FLUSH, quinteFlushMain1);
+        } else
+            return new Gagnant(2, QUINTE_FLUSH, quinteFlushMain2);
     }
 
     private Gagnant compareDoublePaires(Main main1, Main main2) {

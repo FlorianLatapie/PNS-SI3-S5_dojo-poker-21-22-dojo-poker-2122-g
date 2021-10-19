@@ -117,12 +117,16 @@ public class Main {
     }
 
     Carte[] contientQuinteFlush() {
-        Carte[] carte = new Carte[0];
-        if(contientSuite() != carte && contientCouleur() != null) {
-            return contientSuite();
-        } else {
-            return null;
+        Carte[] suite = contientSuite();
+        String couleur = contientCouleur();
+        if (contientSuite().length == 5 && contientCouleur() != null){
+            Carte[] listeRetour = new Carte[5];
+            for (int i = 0; i < 5; i ++) {
+                listeRetour[i] = new Carte(suite[i].getValeur(), couleur);
+            }
+            return listeRetour;
         }
+        return new Carte[]{new Carte(0)};
     }
 
     int[] contientDoublePaires() {
