@@ -80,7 +80,103 @@ public class QuinteFlushTest {
         listeMain2.add(new Carte(5, "Co"));
         listeMain2.add(new Carte(4, "Ca"));
         listeMain2.add(new Carte(3, "Pi"));
+        listeMain2.add(new Carte(2, "Pi"));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(1, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main2, main1));
+    }
+
+    @Test
+    public void QuinteFlushVsCarreTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1, "Tr"));
+        listeMain1.add(new Carte(2, "Tr"));
+        listeMain1.add(new Carte(3, "Tr"));
+        listeMain1.add(new Carte(4, "Tr"));
+        listeMain1.add(new Carte(5, "Tr"));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(6, "Tr"));
+        listeMain2.add(new Carte(6, "Co"));
+        listeMain2.add(new Carte(6, "Ca"));
+        listeMain2.add(new Carte(6, "Pi"));
         listeMain2.add(new Carte(2, "Tr"));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(1, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main2, main1));
+    }
+
+    @Test
+    public void QuinteFlushVsBrelanTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1, "Tr"));
+        listeMain1.add(new Carte(2, "Tr"));
+        listeMain1.add(new Carte(3, "Tr"));
+        listeMain1.add(new Carte(4, "Tr"));
+        listeMain1.add(new Carte(5, "Tr"));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(6, "Tr"));
+        listeMain2.add(new Carte(6, "Co"));
+        listeMain2.add(new Carte(6, "Ca"));
+        listeMain2.add(new Carte(4, "Pi"));
+        listeMain2.add(new Carte(2, "Pi"));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(1, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main2, main1));
+    }
+
+    @Test
+    public void QuinteFlushVsDoublePaireTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1, "Tr"));
+        listeMain1.add(new Carte(2, "Tr"));
+        listeMain1.add(new Carte(3, "Tr"));
+        listeMain1.add(new Carte(4, "Tr"));
+        listeMain1.add(new Carte(5, "Tr"));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(6, "Tr"));
+        listeMain2.add(new Carte(6, "Co"));
+        listeMain2.add(new Carte(8, "Ca"));
+        listeMain2.add(new Carte(8, "Pi"));
+        listeMain2.add(new Carte(2, "Pi"));
+
+        Main main2 = new Main(listeMain2);
+
+        Assert.assertEquals(new Gagnant(1, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main1, main2));
+        Assert.assertEquals(new Gagnant(2, QUINTE_FLUSH, new Carte(1, "Tr"), new Carte(2, "Tr"), new Carte(3, "Tr"), new Carte(4, "Tr"), new Carte(5, "Tr")), cm.compare(main2, main1));
+    }
+
+    @Test
+    public void QuinteFlushVsPaireTest() {
+        List<Carte> listeMain1 = new ArrayList<>();
+        listeMain1.add(new Carte(1, "Tr"));
+        listeMain1.add(new Carte(2, "Tr"));
+        listeMain1.add(new Carte(3, "Tr"));
+        listeMain1.add(new Carte(4, "Tr"));
+        listeMain1.add(new Carte(5, "Tr"));
+
+        Main main1 = new Main(listeMain1);
+
+        List<Carte> listeMain2 = new ArrayList<>();
+        listeMain2.add(new Carte(7, "Tr"));
+        listeMain2.add(new Carte(3, "Co"));
+        listeMain2.add(new Carte(8, "Ca"));
+        listeMain2.add(new Carte(8, "Pi"));
+        listeMain2.add(new Carte(2, "Pi"));
 
         Main main2 = new Main(listeMain2);
 
