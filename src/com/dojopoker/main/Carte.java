@@ -1,14 +1,13 @@
 package com.dojopoker.main;
 
-import static com.dojopoker.main.Couleur.*;
-
 public class Carte {
     private int valeur;
     private String valeurAff;
-    private Couleur couleur;
+    private String couleur;
     private boolean possedeCouleur;
 
-    private void intValToValAff(int valeur) {
+    public Carte(int valeur, String couleur) {
+        this.valeurAff = valeur + "";
         switch (valeur) {
             case 11:
                 this.valeurAff = "V";
@@ -25,33 +24,12 @@ public class Carte {
             default:
                 this.valeur = valeur;
         }
+        this.couleur = couleur;
+        this.possedeCouleur = true;
     }
 
-    private void stringCoulToCouleur(String couleur) {
-        switch (couleur) {
-            case "Tr":
-                this.couleur = TREFLE;
-                this.possedeCouleur = true;
-                break;
-            case "Co":
-                this.couleur = COEUR;
-                this.possedeCouleur = true;
-                break;
-            case "Ca":
-                this.couleur = CARREAU;
-                this.possedeCouleur = true;
-                break;
-            case "Pi":
-                this.couleur = PIQUE;
-                this.possedeCouleur = true;
-                break;
-            default:
-                this.couleur = PAS_DE_COULEUR;
-                this.possedeCouleur = false;
-        }
-    }
-
-    private void stringValToIntVal(String valeur) {
+    public Carte(String valeur, String couleur) {
+        this.valeurAff = valeur;
         switch (valeur) {
             case "V":
                 this.valeur = 11;
@@ -68,38 +46,29 @@ public class Carte {
             default:
                 this.valeur = Integer.parseInt(valeur);
         }
-    }
-
-    public Carte(int valeur, Couleur couleur) {
-        this.valeurAff = valeur + "";
-        this.intValToValAff(valeur);
-        this.couleur = couleur;
-        this.possedeCouleur = true;
-    }
-
-    public Carte(int valeur, String couleur) {
-        this.valeurAff = valeur + "";
-        intValToValAff(valeur);
-        stringCoulToCouleur(couleur);
-    }
-
-    public Carte(String valeur, String couleur) {
-        this.valeurAff = valeur;
-        stringValToIntVal(valeur);
-        stringCoulToCouleur(couleur);
-    }
-
-    public Carte(String valeur, Couleur couleur) {
-        this.valeurAff = valeur;
-        stringValToIntVal(valeur);
         this.couleur = couleur;
         this.possedeCouleur = true;
     }
 
     public Carte(int valeur) {
         this.valeurAff = valeur + "";
-        intValToValAff(valeur);
-        this.couleur = PAS_DE_COULEUR;
+        switch (valeur) {
+            case 11:
+                this.valeurAff = "V";
+                break;
+            case 12:
+                this.valeurAff = "D";
+                break;
+            case 13:
+                this.valeurAff = "R";
+                break;
+            case 14:
+                this.valeurAff = "A";
+                break;
+            default:
+                this.valeur = valeur;
+        }
+        this.couleur = "Pas de couleur";
         this.possedeCouleur = false;
     }
 
@@ -107,7 +76,7 @@ public class Carte {
         return valeur;
     }
 
-    Couleur getCouleur() {
+    String getCouleur() {
         return couleur;
     }
 
@@ -123,7 +92,7 @@ public class Carte {
     @Override
     public String toString() {
         if (possedeCouleur) {
-            return valeurAff + "" + couleur.getCouleurToString();
+            return valeurAff + "" + couleur;
         } else {
             return valeurAff;
         }
