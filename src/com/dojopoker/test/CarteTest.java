@@ -1,8 +1,11 @@
 package com.dojopoker.test;
 
 import com.dojopoker.main.Carte;
+import com.dojopoker.main.Couleur;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static com.dojopoker.main.Couleur.CARREAU;
 
 /**
  * @author Florian Latapie
@@ -30,6 +33,9 @@ public class CarteTest {
         Carte cR = new Carte(13);
         Carte cA = new Carte(14);
 
+        Carte scVCa = new Carte("V", CARREAU);
+        Carte ssImpossible = new Carte("V", "non");
+
         Assert.assertTrue(c1.equals(c3));
         Assert.assertFalse(c1.equals(c2));
         Assert.assertFalse(c1.equals(null));
@@ -53,5 +59,8 @@ public class CarteTest {
         Assert.assertEquals("D", cD.toString());
         Assert.assertEquals("R", cR.toString());
         Assert.assertEquals("A", cA.toString());
+
+        Assert.assertEquals("VCa", scVCa.toString());
+        Assert.assertEquals("V", ssImpossible.toString());
     }
 }

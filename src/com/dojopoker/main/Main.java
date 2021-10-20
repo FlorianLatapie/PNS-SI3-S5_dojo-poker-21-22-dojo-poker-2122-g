@@ -39,7 +39,7 @@ public class Main {
         return this.cartes.get(i).getValeur();
     }
 
-    public String getCouleurMain(int i) {
+    public Couleur getCouleurMain(int i) {
         return this.cartes.get(i).getCouleur();
     }
 
@@ -118,7 +118,7 @@ public class Main {
 
     Carte[] contientQuinteFlush() {
         Carte[] suite = contientSuite();
-        String couleur = contientCouleur();
+        Couleur couleur = contientCouleur();
         if (contientSuite().length == 5 && contientCouleur() != null) {
             Carte[] listeRetour = new Carte[5];
             for (int i = 0; i < 5; i++) {
@@ -152,11 +152,11 @@ public class Main {
         }
     }
 
-    String contientCouleur() {
+    Couleur contientCouleur() {
         if (this.getCartesSize() != 0) {
-            String couleur = this.getCouleurMain(0);
+            Couleur couleur = this.getCouleurMain(0);
 
-            if (!couleur.equals("Pas de couleur")) {
+            if (!couleur.equals(Couleur.PAS_DE_COULEUR)) {
                 for (Carte carte : this.getCartes()) {
                     if (!carte.getCouleur().equals(couleur)) {
                         return null;
