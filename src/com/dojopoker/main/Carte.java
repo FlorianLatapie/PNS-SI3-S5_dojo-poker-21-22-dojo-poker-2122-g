@@ -51,7 +51,6 @@ public class Carte {
     }
 
     public Carte(int valeur) {
-        this.valeurAff = valeur + "";
         switch (valeur) {
             case 11:
                 this.valeurAff = "V";
@@ -66,8 +65,9 @@ public class Carte {
                 this.valeurAff = "A";
                 break;
             default:
-                this.valeur = valeur;
+                this.valeurAff = valeur+"";
         }
+        this.valeur = valeur;
         this.couleur = "Pas de couleur";
         this.possedeCouleur = false;
     }
