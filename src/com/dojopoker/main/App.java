@@ -6,6 +6,7 @@ public class App {
     public static void main(String[] args) {
         try {
             MoteurJeu mj = new MoteurJeu();
+            System.out.println(mj.creerPaquet());
             mj.lancerJeu();
 
             main(args);// on relance automatiquement le jeu à la fin
