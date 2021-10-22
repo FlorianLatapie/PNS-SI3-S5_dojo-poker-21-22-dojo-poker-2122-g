@@ -6,20 +6,13 @@ import java.util.Random;
 
 public class Joueurs {
     private Main mainJoueur;
-    private MoteurJeu mj = new MoteurJeu();
-    private List<Carte> paquet = mj.creerPaquet();
+    private PaquetCarte paquet = new PaquetCarte();
     private List<Joueurs> liste = new ArrayList<Joueurs>();
-    private Random rand = new Random();
 
     public Joueurs() {
         List<Carte> listeMain = new ArrayList<Carte>();
-        int carte1 = rand.nextInt(52);
-        listeMain.add(paquet.get(carte1));
-        paquet.remove(carte1);
-
-        int carte2 = rand.nextInt(51);
-        listeMain.add(paquet.get(carte2));
-        paquet.remove(carte2);
+        listeMain.add(paquet.carteAuHasard());
+        listeMain.add(paquet.carteAuHasard());
 
         this.mainJoueur = new Main(listeMain);
     }
