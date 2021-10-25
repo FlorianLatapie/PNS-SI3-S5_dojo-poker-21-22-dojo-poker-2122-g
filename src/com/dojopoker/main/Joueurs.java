@@ -2,16 +2,15 @@ package com.dojopoker.main;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Joueurs {
     private Main mainJoueur;
     private PaquetCarte paquet = new PaquetCarte();
-    private List<Joueurs> liste = new ArrayList<Joueurs>();
+    private List<Joueurs> liste = new ArrayList<>();
     private Main cartesMilieu;
 
     public Joueurs() {
-        List<Carte> listeMain = new ArrayList<Carte>();
+        List<Carte> listeMain = new ArrayList<>();
         listeMain.add(paquet.carteAuHasard());
         listeMain.add(paquet.carteAuHasard());
 
@@ -19,7 +18,7 @@ public class Joueurs {
     }
 
     public String toString() {
-        return this.mainJoueur.toString();
+        return "Joueurs "+this.mainJoueur.toString();
     }
 
     public List<Joueurs> nvPartie() {
@@ -30,7 +29,7 @@ public class Joueurs {
     }
 
     public Main flop() {
-        List<Carte> listeCarte = new ArrayList<Carte>();
+        List<Carte> listeCarte = new ArrayList<>();
         listeCarte.add(paquet.carteAuHasard());
         listeCarte.add(paquet.carteAuHasard());
         listeCarte.add(paquet.carteAuHasard());

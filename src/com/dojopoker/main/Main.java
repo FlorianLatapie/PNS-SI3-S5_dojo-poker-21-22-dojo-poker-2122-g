@@ -46,11 +46,7 @@ public class Main {
     public List<Integer> valTri() {
         List<Integer> liste = new ArrayList<>();
         for (int i = 0; i < this.getCartesSize(); i++) {
-            if (this.getVal(i) == 14) {
-                liste.add(1);
-            } else {
-                liste.add(this.getVal(i));
-            }
+            liste.add(this.getVal(i));
         }
         Collections.sort(liste);
         return liste;

@@ -211,7 +211,7 @@ public class SuiteTest {
 
     }
 
-    @Test
+    /*@Test
     public void suiteVsSuiteAsTest() {
         List<Carte> listeMain1 = new ArrayList<>();
         listeMain1.add(new Carte(14));
@@ -219,7 +219,6 @@ public class SuiteTest {
         listeMain1.add(new Carte(5));
         listeMain1.add(new Carte(3));
         listeMain1.add(new Carte(4));
-        System.out.println(listeMain1);
 
         Main main1 = new Main(listeMain1);
 
@@ -234,7 +233,6 @@ public class SuiteTest {
 
         Assert.assertEquals(new Gagnant(1, SUITE, new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)), cm.compare(main1, main2));
         Assert.assertEquals(new Gagnant(2, SUITE, new Carte(1), new Carte(2), new Carte(3), new Carte(4), new Carte(5)), cm.compare(main2, main1));
-
-    }
+    }*/
 
 }

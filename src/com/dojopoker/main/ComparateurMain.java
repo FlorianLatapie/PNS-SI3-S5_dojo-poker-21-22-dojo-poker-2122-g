@@ -150,14 +150,14 @@ public class ComparateurMain {
         int[] paireMain2 = main2.contientDoublePaires();
         if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] != 0 && paireMain2[1] != 0) {
             if (paireMain1[0] > paireMain2[0]) {
-                return new Gagnant(1, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain1[0]), new Carte(paireMain1[1])});
+                return new Gagnant(1, DOUBLE_PAIRE, new Carte(paireMain1[0]), new Carte(paireMain1[1]));
             } else if (paireMain1[0] < paireMain2[0]) {
-                return new Gagnant(2, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain2[0]), new Carte(paireMain2[1])});
+                return new Gagnant(2, DOUBLE_PAIRE, new Carte(paireMain2[0]), new Carte(paireMain2[1]));
             } else {
                 if (paireMain1[1] > paireMain2[1]) {
-                    return new Gagnant(1, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain1[0]), new Carte(paireMain1[1])});
+                    return new Gagnant(1, DOUBLE_PAIRE, new Carte(paireMain1[0]), new Carte(paireMain1[1]));
                 } else if (paireMain1[1] < paireMain2[1]) {
-                    return new Gagnant(2, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain2[0]), new Carte(paireMain2[1])});
+                    return new Gagnant(2, DOUBLE_PAIRE, new Carte(paireMain2[0]), new Carte(paireMain2[1]));
                 } else {
                     main1.supprimerCartes(paireMain1[0], 2);
                     main1.supprimerCartes(paireMain1[1], 2);
@@ -167,9 +167,9 @@ public class ComparateurMain {
                 }
             }
         } else if (paireMain1[0] != 0 && paireMain1[1] != 0 && paireMain2[0] == 0 && paireMain2[1] == 0) {
-            return new Gagnant(1, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain1[0]), new Carte(paireMain1[1])});
+            return new Gagnant(1, DOUBLE_PAIRE, new Carte(paireMain1[0]), new Carte(paireMain1[1]));
         } else {
-            return new Gagnant(2, DOUBLE_PAIRE, new Carte[]{new Carte(paireMain2[0]), new Carte(paireMain2[1])});
+            return new Gagnant(2, DOUBLE_PAIRE, new Carte(paireMain2[0]), new Carte(paireMain2[1]));
         }
     }
 
