@@ -8,6 +8,7 @@ public class Joueurs {
     private Main mainJoueur;
     private PaquetCarte paquet = new PaquetCarte();
     private List<Joueurs> liste = new ArrayList<Joueurs>();
+    private Main cartesMilieu;
 
     public Joueurs() {
         List<Carte> listeMain = new ArrayList<Carte>();
@@ -26,5 +27,15 @@ public class Joueurs {
             liste.add(new Joueurs());
         }
         return liste;
+    }
+
+    public Main flop() {
+        List<Carte> listeCarte = new ArrayList<Carte>();
+        listeCarte.add(paquet.carteAuHasard());
+        listeCarte.add(paquet.carteAuHasard());
+        listeCarte.add(paquet.carteAuHasard());
+
+        cartesMilieu = new Main(listeCarte);
+        return cartesMilieu;
     }
 }
