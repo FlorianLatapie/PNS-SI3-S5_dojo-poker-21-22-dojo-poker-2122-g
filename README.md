@@ -11,7 +11,10 @@ Tout ce qui est demandé dans le "Sujet du Doko Poker"
 * Flop 
 
 ## Comment exécuter le projet ? 
-Lancer le main contenu dans App.java
+Lancer le main contenu dans App.java du package "com.dojopoker.main"
+
+## Où sonts les tests ?
+ils sont dans le package "com.dojopoker.test" 
 
 
 ## Membres de l'équipe 
